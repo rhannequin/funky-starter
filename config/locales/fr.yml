@@ -26,8 +26,16 @@ fr:
         forgot_your_password: Mot de passe oublié ?
         send_me_reset_password_instructions: Envoyez-moi les instructions pour réinitialiser mon mot de passe
     registrations:
+      edit:
+        change_my_account: Modifier mes informations personnelles
+      form:
+        confirm_hint: nous avons besoin de votre mot de passe actuel pour confirmer les changements
+        leave_blank_hint: laissez vide si vous ne souhaitez pas modifier
+        update: Mettre à jour
       new:
         sign_up: Inscription
+      provider:
+        provider_account: Votre compte est associé à un réseau social, vous n'avez pas d'identifiant à changer.
     sessions:
       destroy:
         sign_out: Déconnexion
@@ -48,6 +56,8 @@ fr:
     admin_panel_title: Admin
     application_name: Funkystarterpp
     navbar:
+      account:
+        settings: Paramètres
       admin:
         name: Admin
         users: Utilisateurs
@@ -74,6 +84,7 @@ fr:
   simple_form:
     labels:
       user:
+        current_password: Mot de passe actuel
         email: Adresse e-mail
         name: Nom d'utilisateur
         password: Mot de passe
