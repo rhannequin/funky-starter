@@ -9,7 +9,7 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
-    @user.errors[:base] << :is_current_user if @user == current_user
+    @user.errors[:base] << :is_current_user unless can?(:destroy, @user)
     if @user.errors.empty? && @user.destroy
       flash[:notice] = t(:'controllers.users.destroy.flash.success')
     else

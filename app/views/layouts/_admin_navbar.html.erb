@@ -1,0 +1,22 @@
+<%-
+resources = [
+  { model: User, right: :manage, key: 'users', path: admin_users_path }
+]
+can_see_admin_navbar = resources.map { |h| can?(h[:right], h[:model]) }.include?(true)
+%>
+<% if can_see_admin_navbar -%>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <%= t(:'layouts.navbar.admin.name') %> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <%- resources.each do |resource| %>
+        <%- if can? resource[:right], resource[:model] %>
+        <li>
+          <%= link_to t(:"layouts.navbar.admin.#{resource[:key]}"), resource[:path] %>
+        </li>
+        <% end -%>
+      <% end -%>
+    </ul>
+  </li>
+<% end -%>

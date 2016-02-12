@@ -13,16 +13,7 @@
             <li><%= link_to t(:'layouts.navbar.account.settings'), edit_user_registration_path %></li>
           </ul>
         </li>
-        <%- if current_user.has_role? :admin %>
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <%= t(:'layouts.navbar.admin.name') %> <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t(:'layouts.navbar.admin.users'), admin_users_path %></li>
-            </ul>
-          </li>
-        <% end -%>
+        <%= render 'layouts/admin_navbar' %>
         <li>
           <%= link_to t(:'devise.sessions.destroy.sign_out'), destroy_user_session_path, method: :delete %>
         </li>
