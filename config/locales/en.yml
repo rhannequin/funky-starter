@@ -1,5 +1,18 @@
 ---
 en:
+  activerecord:
+    attributes:
+      user:
+        created_at: Signed up
+        email: Email
+        id: Id
+        last_sign_in_at: Last sign in date
+        last_sign_in_ip: Last sign in IP
+        name: Name
+        provider: Provider
+        roles: Roles
+        sign_in_count: Sign in count
+        updated_at: Updated
   admin:
     users:
       index:
@@ -63,19 +76,6 @@ en:
         users: Users
       home: Accueil
     welcome: Welcome, %{user}
-  mongoid:
-    attributes:
-      user:
-        created_at: Signed up
-        email: Email
-        id: Id
-        last_sign_in_at: Last sign in date
-        last_sign_in_ip: Last sign in IP
-        name: Name
-        provider: Provider
-        roles: Roles
-        sign_in_count: Sign in count
-        updated_at: Updated
   scaffold:
     actions: Actions
     back: Back

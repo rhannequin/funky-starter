@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
 
-# MongoDB driver
-gem 'mongoid', '~> 4.0.0'
-gem 'bson_ext'
+# Database
+gem 'sqlite3'
+gem 'pg'
 
 # Authentication
 gem 'devise'
@@ -13,12 +13,12 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+# Soft-delete
+gem 'paranoia'
+
 # Authorization
 gem 'cancancan'
 gem 'rolify'
-
-# Soft-delete
-gem 'mongoid-paranoia'
 
 # Environment configuration
 gem 'figaro'
@@ -55,7 +55,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'         # RSpec test framework
-  gem 'mongoid-rspec', '~> 2.0.0.rc1'
   gem 'factory_girl_rails'            # Factories
   gem 'capybara'                      # Integration tests
   gem 'faker'                         # Use real values to fake for factories
@@ -83,7 +82,7 @@ end
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'
