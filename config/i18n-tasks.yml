@@ -73,12 +73,13 @@ search:
 
 ## Consider these keys used
 ignore_unused:
-# - 'activerecord.attributes.*'
+- 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
 # - 'simple_form.{error_notification,required}.:'
-- 'simple_form.labels.*'
+# - 'simple_form.labels.*'
+- 'activerecord.models.*'
 - 'unauthorized.*'
 
 ## Exclude these keys from `i18n-tasks eq-base' report

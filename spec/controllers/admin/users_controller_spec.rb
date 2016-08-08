@@ -25,7 +25,8 @@ describe Admin::UsersController, type: :controller do
     end
 
     it 'loads all of the users into @users' do
-      user1, user2 = create(:user), create(:user)
+      user1 = create(:user)
+      user2 = create(:user)
       get :index
       expect(assigns(:users)).to match_array([user, user1, user2])
     end

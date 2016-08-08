@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def account_params(p)
-    p.permit %i( name email password password_confirmation current_password )
+    p.permit %i(name email password password_confirmation current_password)
   end
 end

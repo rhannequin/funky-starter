@@ -12,10 +12,10 @@ feature 'User edit registration' do
 
     scenario 'a user can see the edit registration form' do
       within 'form#edit_user' do
-        expect(page).to have_field I18n.t(:'simple_form.labels.user.email')
-        expect(page).to have_field I18n.t(:'simple_form.labels.user.password')
-        expect(page).to have_field I18n.t(:'simple_form.labels.user.password_confirmation')
-        expect(page).to have_field I18n.t(:'simple_form.labels.user.current_password')
+        expect(page).to have_field User.human_attribute_name(:email)
+        expect(page).to have_field User.human_attribute_name(:password)
+        expect(page).to have_field User.human_attribute_name(:password_confirmation)
+        expect(page).to have_field User.human_attribute_name(:current_password)
         expect(page).to have_button I18n.t(:'devise.registrations.form.update')
       end
     end
@@ -25,10 +25,10 @@ feature 'User edit registration' do
 
       background do
         within 'form#edit_user' do
-          fill_in I18n.t(:'simple_form.labels.user.name'), with: new_name
-          fill_in I18n.t(:'simple_form.labels.user.email'), with: 'new.email@example.com'
-          fill_in I18n.t(:'simple_form.labels.user.password'), with: 'new password'
-          fill_in I18n.t(:'simple_form.labels.user.password_confirmation'), with: 'new password'
+          fill_in User.human_attribute_name(:name), with: new_name
+          fill_in User.human_attribute_name(:email), with: 'new.email@example.com'
+          fill_in User.human_attribute_name(:password), with: 'new password'
+          fill_in User.human_attribute_name(:password_confirmation), with: 'new password'
           find('#user_current_password').set 'password'
           click_button I18n.t(:'devise.registrations.form.update')
         end

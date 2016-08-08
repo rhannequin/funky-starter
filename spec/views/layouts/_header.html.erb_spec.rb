@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'layouts/_header.html.erb' do
   describe 'general information' do
-    it "shows application name and root path link" do
+    it 'shows application name and root path link' do
       allow(view).to receive_messages(current_user: nil)
       render
       expect(rendered).to include(I18n.t(:'layouts.application_name'))
@@ -58,7 +58,7 @@ describe 'layouts/_header.html.erb' do
           sign_in create :admin
           render
           expect(rendered).to include(I18n.t(:'layouts.navbar.admin.name'))
-          expect(rendered).to include(I18n.t(:'layouts.navbar.admin.users'))
+          expect(rendered).to include(User.model_name.human.capitalize.pluralize)
         end
       end
     end

@@ -13,7 +13,7 @@ can_see_admin_navbar = resources.map { |h| can?(h[:right], h[:model]) }.include?
       <%- resources.each do |resource| %>
         <%- if can? resource[:right], resource[:model] %>
         <li>
-          <%= link_to t(:"layouts.navbar.admin.#{resource[:key]}"), resource[:path] %>
+          <%= link_to resource[:model].model_name.human.capitalize.pluralize, resource[:path] %>
         </li>
         <% end -%>
       <% end -%>

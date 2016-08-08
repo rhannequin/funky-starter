@@ -31,7 +31,7 @@ describe 'admin/users/show.html.erb' do
 
     it 'displays users attributes' do
       render
-      expect(rendered).to include(roles_list user.roles)
+      expect(rendered).to include(roles_list(user.roles))
     end
   end
 

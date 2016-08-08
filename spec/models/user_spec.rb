@@ -48,7 +48,7 @@ describe User, type: :model do
     end
   end
 
-  describe 'soft delete'do
+  describe 'soft delete' do
     it 'is properly deleted' do
       user # Used to say to RSpec that we need that record
       user_count_before = User.count
