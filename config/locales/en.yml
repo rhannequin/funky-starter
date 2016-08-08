@@ -92,3 +92,5 @@ en:
         remember_me: Remember me
   unauthorized:
     default: You are not authorized to access this page.
+    destroy:
+      user: Impossible to delete this user.

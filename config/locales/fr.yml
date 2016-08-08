@@ -92,3 +92,5 @@ fr:
         remember_me: Se souvenir de moi
   unauthorized:
     default: Vous n'êtes pas autorisé(e) à accéder à cette page.
+    destroy:
+      user: Impossible de supprimer cet utilisateur.
