@@ -11,5 +11,10 @@ module Macros
     %i(twitter facebook).each do |provider|
       provides_mock_for provider
     end
+
+    def log_in_with_omniauth(provider)
+      send :"mock_auth_#{provider}"
+      visit user_omniauth_authorize_path(provider: provider)
+    end
   end
 end

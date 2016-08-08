@@ -90,7 +90,7 @@ describe Admin::UsersController, type: :controller do
         delete :destroy, id: connected_user.id
         expect(flash[:notice]).not_to be_present
         expect(flash[:error]).to be_present
-        expect(flash[:error]).to eq(I18n.t(:'controllers.users.destroy.flash.error'))
+        expect(flash[:error]).to eq(I18n.t(:'unauthorized.destroy.user'))
       end
     end
 

@@ -37,8 +37,7 @@ feature 'Sign in' do
   %w(twitter facebook).each do |provider|
     describe "when signing up with #{provider.capitalize}" do
       background do
-        send :"mock_auth_#{provider}"
-        visit user_omniauth_authorize_path(provider: provider)
+        log_in_with_omniauth(provider)
       end
 
       scenario "user is connected with his #{provider.capitalize} account" do

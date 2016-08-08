@@ -42,11 +42,10 @@ feature 'User edit registration' do
     end
   end
 
-  %w(twitter facebook).each do |provider|
+  %i(twitter facebook).each do |provider|
     describe "when signed in with #{provider.capitalize}" do
       background do
-        send :"mock_auth_#{provider}"
-        visit user_omniauth_authorize_path(provider: provider)
+        log_in_with_omniauth(provider)
         visit edit_user_registration_path
       end
 
