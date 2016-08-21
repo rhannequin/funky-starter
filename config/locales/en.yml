@@ -34,7 +34,6 @@ en:
     users:
       destroy:
         flash:
-          error: Impossible to delete this user.
           success: User deleted.
   devise:
     passwords:

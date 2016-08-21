@@ -34,7 +34,6 @@ fr:
     users:
       destroy:
         flash:
-          error: Impossible de supprimer cet utilisateur.
           success: Utilisateur supprimé.
   devise:
     passwords:
