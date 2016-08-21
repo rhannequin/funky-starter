@@ -3,7 +3,11 @@ module Macros
     def self.provides_mock_for(provider)
       class_eval %(
         def mock_auth_#{provider}
-          OmniAuth.config.add_mock :#{provider}, uid: '12345', info: { name: '#{provider.capitalize} User', provider: :#{provider} }
+          OmniAuth.config.add_mock :#{provider}, uid: '12345', info: {
+            name: '#{provider.capitalize} User',
+            provider: :#{provider},
+            email: "#{provider}-user@example.com"
+          }
         end
       )
     end
