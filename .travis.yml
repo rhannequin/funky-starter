@@ -5,6 +5,11 @@ rvm:
   - 2.2.3
   - 2.3.1
 bundler_args: --without production
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 script: bundle exec rake spec
 env:
-  - DB_NAME=":memory:" SECRET_KEY_BASE="abc123_test" DEVISE_SECRET_KEY="abc123_test"
+  - SECRET_KEY_BASE="abc123_test" DEVISE_SECRET_KEY="abc123_test"

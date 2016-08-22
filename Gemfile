@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.0'
 
 # Database
-gem 'sqlite3', platforms: :ruby
+gem 'sqlite3'
 gem 'pg'
 
 # Authentication
