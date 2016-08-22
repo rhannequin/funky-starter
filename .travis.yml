@@ -7,4 +7,4 @@ rvm:
 bundler_args: --without production
 script: bundle exec rake spec
 env:
-  - SECRET_KEY_BASE="abc123_test" DEVISE_SECRET_KEY="abc123_test"
+  - DB_NAME=":memory:" SECRET_KEY_BASE="abc123_test" DEVISE_SECRET_KEY="abc123_test"
