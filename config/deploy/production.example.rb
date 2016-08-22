@@ -7,8 +7,6 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
-
 # role-based syntax
 # ==================
 
@@ -17,11 +15,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{user@12.345.678.90}
-role :web, %w{user@12.345.678.90}
-role :db,  %w{user@12.345.678.90}, primary: true
-
-
+role :app, %w(user@12.345.678.90)
+role :web, %w(user@12.345.678.90)
+role :db,  %w(user@12.345.678.90), primary: true
 
 # Configuration
 # =============
@@ -30,8 +26,6 @@ role :db,  %w{user@12.345.678.90}, primary: true
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
-
 
 # Custom SSH Options
 # ==================

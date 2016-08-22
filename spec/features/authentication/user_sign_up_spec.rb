@@ -9,8 +9,8 @@ feature 'Sign up' do
 
   describe 'when user provides valid credentials' do
     background do
-      fill_in I18n.t(:'simple_form.labels.user.email'), with: user.email
-      fill_in I18n.t(:'simple_form.labels.user.name'), with: user.name
+      fill_in User.human_attribute_name(:email), with: user.email
+      fill_in User.human_attribute_name(:name), with: user.name
       find('#user_password').set 'password'
       find('#user_password_confirmation').set 'password'
       click_button I18n.t(:'devise.registrations.new.sign_up')

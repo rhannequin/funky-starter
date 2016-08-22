@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: exception.message
+    flash[:error] = exception.message
+    if request.env['HTTP_REFERER'].present?
+      redirect_to :back
+    else
+      redirect_to root_url
+    end
   end
 
   protected
@@ -17,6 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def account_params(p)
-    p.permit %i( name email password password_confirmation current_password )
+    p.permit %i(name email password password_confirmation current_password)
   end
 end

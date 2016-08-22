@@ -1,5 +1,26 @@
 ---
 en:
+  activerecord:
+    attributes:
+      user:
+        created_at: Signed up
+        current_password: Current password
+        email: Email
+        id: Id
+        last_sign_in_at: Last sign in date
+        last_sign_in_ip: Last sign in IP
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
+        provider: pProvider
+        remember_me: Remember me
+        roles: Roles
+        sign_in_count: Sign in count
+        updated_at: Updated
+    models:
+      user:
+        one: user
+        other: users
   admin:
     users:
       index:
@@ -13,7 +34,6 @@ en:
     users:
       destroy:
         flash:
-          error: Impossible to delete this user.
           success: User deleted.
   devise:
     passwords:
@@ -60,35 +80,14 @@ en:
         settings: Settings
       admin:
         name: Admin
-        users: Users
       home: Accueil
     welcome: Welcome, %{user}
-  mongoid:
-    attributes:
-      user:
-        created_at: Signed up
-        email: Email
-        id: Id
-        last_sign_in_at: Last sign in date
-        last_sign_in_ip: Last sign in IP
-        name: Name
-        provider: Provider
-        roles: Roles
-        sign_in_count: Sign in count
-        updated_at: Updated
   scaffold:
     actions: Actions
     back: Back
     confirm: Are you sure you want to delete?
     delete: Delete
-  simple_form:
-    labels:
-      user:
-        current_password: Current password
-        email: Email
-        name: Username
-        password: Password
-        password_confirmation: Password confirmation
-        remember_me: Remember me
   unauthorized:
     default: You are not authorized to access this page.
+    destroy:
+      user: Impossible to delete this user.

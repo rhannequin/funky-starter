@@ -1,26 +1,25 @@
-class Admin::UsersController < AdminController
-  before_action :find_from_params_id, only: [:show, :destroy]
+module Admin
+  class UsersController < AdminController
+    before_action :find_from_params_id, only: [:show, :destroy]
 
-  def index
-    @users = User.all
-  end
-
-  def show
-  end
-
-  def destroy
-    @user.errors[:base] << :is_current_user unless can?(:destroy, @user)
-    if @user.errors.empty? && @user.destroy
-      flash[:notice] = t(:'controllers.users.destroy.flash.success')
-    else
-      flash[:error] = t(:'controllers.users.destroy.flash.error')
+    def index
+      @users = User.all
     end
-    redirect_to action: :index
-  end
 
-  private
+    def show
+    end
 
-  def find_from_params_id
-    @user = User.find params[:id]
+    def destroy
+      @user.errors[:base] << :is_current_user unless can?(:destroy, @user)
+      @user.destroy
+      flash[:notice] = t(:'controllers.users.destroy.flash.success')
+      redirect_to action: :index
+    end
+
+    private
+
+    def find_from_params_id
+      @user = User.find params[:id]
+    end
   end
 end

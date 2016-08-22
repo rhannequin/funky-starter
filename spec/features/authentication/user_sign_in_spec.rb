@@ -10,9 +10,9 @@ feature 'Sign in' do
     expect(page).to have_content I18n.t(:'devise.sessions.new.sign_in')
 
     within 'form#new_user' do
-      expect(page).to have_field I18n.t(:'simple_form.labels.user.email')
-      expect(page).to have_field I18n.t(:'simple_form.labels.user.password')
-      expect(page).to have_unchecked_field I18n.t(:'simple_form.labels.user.remember_me')
+      expect(page).to have_field User.human_attribute_name(:email)
+      expect(page).to have_field User.human_attribute_name(:password)
+      expect(page).to have_unchecked_field User.human_attribute_name(:remember_me)
       expect(page).to have_button I18n.t(:'devise.sessions.new.sign_in')
     end
   end
@@ -20,7 +20,7 @@ feature 'Sign in' do
   describe 'when a user provides valid credentials' do
     background do
       within 'form#new_user' do
-        fill_in I18n.t(:'simple_form.labels.user.email'), with: user.email
+        fill_in User.human_attribute_name(:email), with: user.email
         find('#user_password').set 'password'
         click_button I18n.t(:'devise.sessions.new.sign_in')
       end
@@ -37,8 +37,7 @@ feature 'Sign in' do
   %w(twitter facebook).each do |provider|
     describe "when signing up with #{provider.capitalize}" do
       background do
-        send :"mock_auth_#{provider}"
-        visit user_omniauth_authorize_path(provider: provider)
+        log_in_with_omniauth(provider)
       end
 
       scenario "user is connected with his #{provider.capitalize} account" do

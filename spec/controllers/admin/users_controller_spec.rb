@@ -25,7 +25,8 @@ describe Admin::UsersController, type: :controller do
     end
 
     it 'loads all of the users into @users' do
-      user1, user2 = create(:user), create(:user)
+      user1 = create(:user)
+      user2 = create(:user)
       get :index
       expect(assigns(:users)).to match_array([user, user1, user2])
     end
@@ -90,13 +91,28 @@ describe Admin::UsersController, type: :controller do
         delete :destroy, id: connected_user.id
         expect(flash[:notice]).not_to be_present
         expect(flash[:error]).to be_present
-        expect(flash[:error]).to eq(I18n.t(:'controllers.users.destroy.flash.error'))
+        expect(flash[:error]).to eq(I18n.t(:'unauthorized.destroy.user'))
       end
     end
 
     it 'redirects to #index' do
       delete :destroy, id: user_to_destroy.id
       expect(response).to redirect_to(admin_users_path)
+    end
+  end
+
+  describe 'authorization' do
+    let(:user) { create :user }
+    let(:previous_page) { edit_user_registration_path }
+
+    before(:each) do
+      sign_in user
+      request.env["HTTP_REFERER"] = previous_page
+    end
+
+    it 'redirects to previous page if not authorized' do
+      get :index
+      expect(response).to redirect_to(previous_page)
     end
   end
 end

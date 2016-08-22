@@ -4,11 +4,9 @@
   <thead>
     <tr>
       <th>#</th>
-      <th><%= t :'mongoid.attributes.user.name' %></th>
-      <th><%= t :'mongoid.attributes.user.email' %></th>
-      <th><%= t :'mongoid.attributes.user.provider' %></th>
-      <th><%= t :'mongoid.attributes.user.roles' %></th>
-      <th><%= t :'mongoid.attributes.user.created_at' %></th>
+      <%- %i( name email provider roles created_at ).each do |att| %>
+        <th><%= User.human_attribute_name(att) %></th>
+      <% end -%>
       <th><%= t :'scaffold.actions' %></th>
     </tr>
   </thead>

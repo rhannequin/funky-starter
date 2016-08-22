@@ -37,9 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    ast (2.1.0)
-    astrolabe (1.3.1)
-      parser (~> 2.2)
+    ast (2.3.0)
     autoprefixer-rails (6.1.2)
       execjs
       json
@@ -49,8 +47,6 @@ GEM
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-    bson (3.2.6)
-    bson_ext (1.5.1)
     builder (3.2.2)
     cancancan (1.13.1)
     capistrano (3.4.0)
@@ -82,7 +78,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    connection_pool (2.2.0)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -145,22 +140,6 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    mongoid (4.0.2)
-      activemodel (~> 4.0)
-      moped (~> 2.0.0)
-      origin (~> 2.1)
-      tzinfo (>= 0.3.37)
-    mongoid-paranoia (1.3.0)
-      activesupport (~> 4.0)
-      mongoid (>= 4.0.0, <= 6.0.0)
-    mongoid-rspec (2.0.0)
-      mongoid (~> 4.0.0)
-      rake
-      rspec (~> 3.1)
-    moped (2.0.7)
-      bson (~> 3.0)
-      connection_pool (~> 2.0)
-      optionable (~> 0.2.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -190,11 +169,12 @@ GEM
     omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
-    optionable (0.2.0)
-    origin (2.1.1)
     orm_adapter (0.5.0)
-    parser (2.2.3.0)
-      ast (>= 1.1, < 3.0)
+    paranoia (2.1.5)
+      activerecord (~> 4.0)
+    parser (2.3.1.2)
+      ast (~> 2.2)
+    pg (0.18.4)
     powerpack (0.1.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -225,7 +205,7 @@ GEM
       activesupport (= 4.2.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rainbow (2.0.0)
+    rainbow (2.1.0)
     raindrops (0.15.0)
     rake (10.4.2)
     rdoc (4.2.0)
@@ -233,10 +213,6 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rolify (5.0.0)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.1)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -254,14 +230,13 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    rubocop (0.35.1)
-      astrolabe (~> 1.3)
-      parser (>= 2.2.3.0, < 3.0)
+    rubocop (0.42.0)
+      parser (>= 2.3.1.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
-      tins (<= 1.6.0)
-    ruby-progressbar (1.7.5)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.8.1)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -289,6 +264,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqlite3 (1.3.11)
     sshkit (1.8.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -302,7 +278,7 @@ GEM
     thread (0.2.2)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    tins (1.6.0)
+    tins (1.12.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -310,6 +286,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (1.1.0)
     unicorn (5.0.1)
       kgio (~> 2.6)
       rack
@@ -331,8 +308,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootstrap-sass
-  bson_ext
   cancancan
   capistrano
   capistrano-bundler
@@ -349,12 +326,11 @@ DEPENDENCIES
   i18n-tasks
   jbuilder (~> 2.0)
   jquery-rails
-  mongoid (~> 4.0.0)
-  mongoid-paranoia
-  mongoid-rspec (~> 2.0.0.rc1)
   omniauth
   omniauth-facebook
   omniauth-twitter
+  paranoia
+  pg
   quiet_assets
   rails (~> 4.2.0)
   responders (~> 2.0)
@@ -366,9 +342,13 @@ DEPENDENCIES
   simple_form
   simplecov
   spring
+  sqlite3
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
   unicorn-rails
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.12.5

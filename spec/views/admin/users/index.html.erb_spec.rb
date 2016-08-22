@@ -15,7 +15,7 @@ describe 'admin/users/index.html.erb' do
     it 'displays users attributes' do
       render
       users.each do |user|
-        expect(rendered).to include(user.id)
+        expect(rendered).to include(user.id.to_s)
         expect(rendered).to include(user.name)
         expect(rendered).to include(user.email)
         expect(rendered).to include(l(user.created_at, format: :short))
@@ -35,7 +35,7 @@ describe 'admin/users/index.html.erb' do
     it 'displays users attributes' do
       render
       users.each do |user|
-        expect(rendered).to include(roles_list user.roles)
+        expect(rendered).to include(roles_list(user.roles))
       end
     end
   end
