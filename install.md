@@ -70,29 +70,3 @@ $ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev lib
 ```
 
 See [Ruby installation](https://github.com/rhannequin/upgrade-ubuntu#ruby).
-
-## MongoDB
-
-```sh
-$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-$ sudo apt-get update
-$ sudo apt-get install -y mongodb-org
-```
-
-Edit the configuration file `/etc/mongod.conf` and ensure to enable those parameters:
-
-```
-auth = true
-httpinterface = false
-```
-
-Launch `$ mongo` and create admin and user:
-
-```
-> use admin
-> db.createUser({ user: 'admin', pwd: 'xxx', roles: [{ role: 'userAdminAnyDatabase', db: 'admin' }] })
-> db.auth('admin', 'xxx')
-> use my_database
-> db.createUser({ user: 'xxx', pwd: 'xxx', roles: [{ role: 'readWrite', db: 'xxx' }] })
-```
