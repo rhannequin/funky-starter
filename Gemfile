@@ -63,7 +63,7 @@ group :development do
   gem 'capistrano-rails'              # Rails support for Capistrano
   gem 'capistrano-bundler'            # Bundler support for Capistrano
   gem 'capistrano-rvm'                # RVM support for Capistrano
-  gem 'capistrano-figaro-yml'         # Figaro's config/application.yml support for Capistrano
+  gem 'capistrano-figaro-yml', github: 'sedx/capistrano-figaro-yml', branch: 'use_env_as_string' # Figaro's config/application.yml support for Capistrano
 end
 
 group :test do

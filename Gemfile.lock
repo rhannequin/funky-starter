@@ -17,6 +17,15 @@ GIT
     paranoia (2.2.0.pre)
       activerecord (>= 4.0, < 5.1)
 
+GIT
+  remote: git://github.com/sedx/capistrano-figaro-yml.git
+  revision: 94a6bcff93d56660a9ccd315fdcffea3ca3f0122
+  branch: use_env_as_string
+  specs:
+    capistrano-figaro-yml (1.0.2)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2, >= 1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,9 +88,6 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-figaro-yml (1.0.3)
-      capistrano (~> 3.1)
-      sshkit (~> 1.2, >= 1.2.0)
     capistrano-harrow (0.5.3)
     capistrano-rails (1.1.7)
       capistrano (~> 3.1)
@@ -335,7 +341,7 @@ DEPENDENCIES
   cancancan
   capistrano
   capistrano-bundler
-  capistrano-figaro-yml
+  capistrano-figaro-yml!
   capistrano-rails
   capistrano-rvm
   capybara
