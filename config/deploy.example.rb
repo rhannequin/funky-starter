@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.6.0'
 
 set :application, 'funky-starter-plus-plus'
 set :repo_url, 'https://example.com/repo.git'
@@ -37,10 +37,8 @@ set :deploy_via, :remote_cache
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# rbenv setup
-set :rbenv_type, :user
-set :rbenv_ruby, File.read('.ruby-version').strip
-set :rbenv_path, '$HOME/.rbenv'
+# RVM setup
+set :rvm_type, :user
 
 # Bundler setup
 set :bundle_binstubs, -> { shared_path.join('bin') }
