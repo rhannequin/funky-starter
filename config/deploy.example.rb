@@ -29,7 +29,7 @@ set :deploy_via, :remote_cache
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -39,18 +39,24 @@ set :deploy_via, :remote_cache
 
 # RVM setup
 set :rvm_type, :user
+set :rvm_ruby_version, '2.3.1'
 
 # Bundler setup
-set :bundle_binstubs, -> { shared_path.join('bin') }
 set :bundle_without, %w(development test).join(' ')
-set :bundle_flags, '--deployment --quiet --binstubs --clean'
+set :bundle_flags, '--deployment --quiet --clean'
 set :bundle_jobs, 4
+set :bundle_binstubs, nil
 
 # Environment PATH
 set :default_environment, 'PATH' => './bin:$PATH'
 
+# Migrations
+set :conditionally_migrate, true
+
+# Assets
+set :assets_roles, [:web, :app]
+
 # Clean
-set :keep_releases, 5
 after 'deploy', 'deploy:cleanup'
 
 namespace :deploy do

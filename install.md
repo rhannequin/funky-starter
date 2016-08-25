@@ -101,3 +101,12 @@ $ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev lib
 ```
 
 See [Ruby installation](https://github.com/rhannequin/upgrade-ubuntu#ruby).
+
+## Application
+
+From local environment:
+
+```sh
+$ bundle exec cap production setup
+$ bundle exec cap production deploy
+```
