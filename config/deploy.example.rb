@@ -2,13 +2,14 @@
 lock '3.6.0'
 
 set :application, 'funky-starter-plus-plus'
-set :repo_url, 'https://example.com/repo.git'
+set :repo_url,    'https://example.com/repo.git'
+set :user,        'deploy'
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, -> { "/directory/#{fetch(:application)}" }
+set :deploy_to, -> { "/home/#{fetch(:user)}/apps/#{fetch(:application)}" }
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -56,8 +57,17 @@ set :conditionally_migrate, true
 # Assets
 set :assets_roles, [:web, :app]
 
-# Clean
-after 'deploy', 'deploy:cleanup'
+# Puma
+set :puma_threads,            [4, 16]
+set :puma_workers,            0
+set :puma_bind,               "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+set :puma_state,              "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid,                "#{shared_path}/tmp/pids/puma.pid"
+set :puma_access_log,         "#{release_path}/log/puma.access.log"
+set :puma_error_log,          "#{release_path}/log/puma.error.log"
+set :puma_preload_app,        true
+set :puma_worker_timeout,     nil
+set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 namespace :deploy do
   after :restart, :clear_cache do
@@ -69,3 +79,6 @@ namespace :deploy do
     end
   end
 end
+
+# Clean
+after 'deploy', 'deploy:cleanup'

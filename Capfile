@@ -28,7 +28,6 @@ require 'capistrano/bundler'
 require 'capistrano/puma'
 require 'capistrano/rails'
 require 'capistrano/figaro_yml'
-require 'capistrano/local_precompile'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
