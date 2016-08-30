@@ -24,6 +24,7 @@ $ ssh-copy-id rhannequin@my-server.com
 * change SSH port (optional)
 * Restrict root login
 * Forbid password authentication (optional)
+* Allow access only for some users
 
 ```sh
 // vi /etc/ssh/sshd_config
@@ -31,9 +32,11 @@ $ ssh-copy-id rhannequin@my-server.com
 Port 4444
 PermitRootLogin no
 PasswordAuthentication no
+AllowUsers rhannequin
 ```
 
 Restart SSH : `$ service ssh restart`
+
 
 ## [Fail2ban](http://doc.ubuntu-fr.org/fail2ban)
 
@@ -42,6 +45,7 @@ Restart SSH : `$ service ssh restart`
 ```sh
 $ sudo apt-get install fail2ban
 ```
+
 
 ## Firewall ([ufw](http://doc.ubuntu-fr.org/ufw))
 
@@ -54,11 +58,13 @@ $ sudo ufw allow 443
 $ sudo ufw enable
 ```
 
+
 ## Postfix
 
 ```sh
 $ sudo apt-get install postfix
 ```
+
 
 ## [Logwatch](http://doc.ubuntu-fr.org/logwatch)
 
@@ -72,12 +78,20 @@ Then edit `/etc/cron.daily/00logwatch` file and add this line:
 /usr/sbin/logwatch --output mail --mailto name@example.com --detail high
 ```
 
+
+## Nginx
+
+```sh
+$ sudo apt-get install curl git-core nginx -y
+```
+
+
 ## PostgreSQL
 
 ### Install
 
 ```sh
-$ sudo apt-get install postgresql
+$ sudo apt-get install postgresql postgresql-contrib
 ```
 
 ### Create project user and database
@@ -92,6 +106,22 @@ postgres=# \q
 $ exit
 ```
 
+### Do not allow remote connections
+
+```sh
+$ sudo vim /etc/postgresql/9.3/main/pg_hba.conf
+```
+
+Make sure these lines are uncommented:
+
+```
+local   all             postgres                                peer
+local   all             all                                     peer
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+```
+
+
 ## Ruby
 
 ### System dependencies
@@ -101,6 +131,7 @@ $ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev lib
 ```
 
 See [Ruby installation](https://github.com/rhannequin/upgrade-ubuntu#ruby).
+
 
 ## Application
 
