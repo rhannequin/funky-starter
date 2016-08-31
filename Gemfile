@@ -17,7 +17,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 # Soft-delete
-gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'rails5'
+gem 'paranoia', github: 'rubysherpas/paranoia',
+                branch: 'rails5'
 
 # Authorization
 gem 'cancancan'
@@ -55,26 +56,29 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring'                        # Keeps application running in the background
-  gem 'web-console'                   # Web Console
-  gem 'quiet_assets'                  # Turns off the Rails asset pipeline log
-  gem 'rubocop'                       # Ruby style guide
-  gem 'capistrano'                    # Deployment
-  gem 'capistrano-rails'              # Rails support for Capistrano
-  gem 'capistrano-bundler'            # Bundler support for Capistrano
-  gem 'capistrano-rvm'                # RVM support for Capistrano
-  gem 'capistrano-figaro-yml'         # Figaro's config/application.yml support for Capistrano
+  gem 'spring'                                # Keeps application running in the background
+  gem 'web-console'                           # Web Console
+  gem 'quiet_assets'                          # Turns off the Rails asset pipeline log
+  gem 'rubocop'                               # Ruby style guide
+  gem 'capistrano',            require: false # Deployment
+  gem 'capistrano-rvm',        require: false # RVM support for Capistrano
+  gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
+  gem 'capistrano-rails',      require: false # Rails support for Capistrano
+  gem 'capistrano3-puma',      require: false # Puma support for Capistrano
+  gem 'capistrano-figaro-yml', require: false,
+                               github: 'sedx/capistrano-figaro-yml',
+                               branch: 'use_env_as_string' # Figaro's config/application.yml support for Capistrano
 end
 
 group :test do
-  gem 'rspec-rails'                   # RSpec test framework
-  gem 'factory_girl_rails'            # Factories
-  gem 'capybara'                      # Integration tests
-  gem 'faker'                         # Use real values to fake for factories
-  gem 'i18n-tasks'                    # Finds and manage missing and unused translations
-  gem 'database_cleaner'              # Clean database during tests
-  gem 'rails-controller-testing'      # Support for assigns and assert_template
-  gem 'simplecov', require: false     # Test coverage
+  gem 'rspec-rails'                           # RSpec test framework
+  gem 'factory_girl_rails'                    # Factories
+  gem 'capybara'                              # Integration tests
+  gem 'faker'                                 # Use real values to fake for factories
+  gem 'i18n-tasks'                            # Finds and manage missing and unused translations
+  gem 'database_cleaner'                      # Clean database during tests
+  gem 'rails-controller-testing'              # Support for assigns and assert_template
+  gem 'simplecov', require: false             # Test coverage
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
