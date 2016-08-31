@@ -143,5 +143,6 @@ From local environment:
 
 ```sh
 $ bundle exec cap production setup
+$ bundle exec cap production puma:config
 $ bundle exec cap production deploy
 ```
