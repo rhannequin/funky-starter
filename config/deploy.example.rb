@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.0'
 
-set :application, 'funky-starter-plus-plus'
+set :application, 'funky-starter'
 set :repo_url,    'https://example.com/repo.git'
 set :user,        'deploy'
 

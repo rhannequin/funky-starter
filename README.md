@@ -1,6 +1,6 @@
-# Funky Starter Plus Plus
+# Funky Starter
 
-Funky Starter Plus Plus is an empty project with basic configuration. It has been developed to create quickly new Rails applications on top of it.
+Funky Starter is an empty project with basic configuration. It has been developed to create quickly new Rails applications on top of it.
 
 ## What's in it?
 
@@ -30,8 +30,8 @@ This is a sample Rails application. Here's what is installed:
 ## Usage
 
 ```sh
-$ git clone https://github.com/rhannequin/funky-starter-plus-plus
-$ cd funky-starter-plus-plus
+$ git clone https://github.com/rhannequin/funky-starter
+$ cd funky-starter
 $ bundle install
 $ bundle exec rake fork[/home/xxx/my-new-project]
 ```
@@ -50,4 +50,4 @@ Names like `my-new-project` will create a module like `MyNewProject`.
 
 This project is *under development* and **really** not ready yet. Here are some issues I am currently working on to:
 
-* [Empty environment variables after deployment](https://github.com/laserlemon/figaro/issues/210)
+* none (for the moment)
