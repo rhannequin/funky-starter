@@ -85,6 +85,10 @@ Then edit `/etc/cron.daily/00logwatch` file and add this line:
 $ sudo apt-get install curl git-core nginx -y
 ```
 
+Use `config/nginx.example.conf` to create a new file `/etc/nginx/sites-available/funky_starter`.
+
+Then `$ ln -nfs /etc/nginx/sites-available/funky_starter /etc/nginx/sites-enabled/funky_starter`.
+
 
 ## PostgreSQL
 
