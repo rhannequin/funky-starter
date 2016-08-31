@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 
@@ -24,7 +24,5 @@ module Funkystarterpp
     config.generators do |g|
       g.factory_girl false
     end
-
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end

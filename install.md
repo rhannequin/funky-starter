@@ -24,6 +24,7 @@ $ ssh-copy-id rhannequin@my-server.com
 * change SSH port (optional)
 * Restrict root login
 * Forbid password authentication (optional)
+* Allow access only for some users
 
 ```sh
 // vi /etc/ssh/sshd_config
@@ -31,17 +32,24 @@ $ ssh-copy-id rhannequin@my-server.com
 Port 4444
 PermitRootLogin no
 PasswordAuthentication no
+AllowUsers rhannequin
 ```
 
 Restart SSH : `$ service ssh restart`
 
+
 ## [Fail2ban](http://doc.ubuntu-fr.org/fail2ban)
+
+*fail2ban* scans log files and bans IPs with toomany password failures, seeking for exploits, etc.
 
 ```sh
 $ sudo apt-get install fail2ban
 ```
 
+
 ## Firewall ([ufw](http://doc.ubuntu-fr.org/ufw))
+
+*UFW*, or *Uncomplicated Firewall*, is a front-end to iptables. Its main goal is to make managing your firewall drop-dead simple and to provide an easy-to-use interface.
 
 ```sh
 $ sudo ufw allow 22
@@ -49,6 +57,15 @@ $ sudo ufw allow 80
 $ sudo ufw allow 443
 $ sudo ufw enable
 ```
+
+
+## Postfix
+
+```sh
+$ sudo apt-get install postfix
+```
+
+
 ## [Logwatch](http://doc.ubuntu-fr.org/logwatch)
 
 ```sh
@@ -57,42 +74,79 @@ $ apt-get install logwatch
 
 Then edit `/etc/cron.daily/00logwatch` file and add this line:
 
-```
+```sh
 /usr/sbin/logwatch --output mail --mailto name@example.com --detail high
 ```
+
+
+## Nginx
+
+```sh
+$ sudo apt-get install curl git-core nginx -y
+```
+
+Use `config/nginx.example.conf` to create a new file `/etc/nginx/sites-available/funky_starter`.
+
+Then `$ ln -nfs /etc/nginx/sites-available/funky_starter /etc/nginx/sites-enabled/funky_starter`.
+
+
+## PostgreSQL
+
+### Install
+
+```sh
+$ sudo apt-get install postgresql postgresql-contrib
+```
+
+### Create project user and database
+
+```sh
+$ sudo -i -u postgres
+$ psql
+postgres=# CREATE USER fspp;
+postgres=# CREATE DATABASE fspp_production OWNER fspp;
+postgres=# ALTER USER fspp WITH ENCRYPTED PASSWORD 'xxx';
+postgres=# \q
+$ exit
+```
+
+### Do not allow remote connections
+
+```sh
+$ sudo vim /etc/postgresql/9.3/main/pg_hba.conf
+```
+
+Make sure these lines are uncommented:
+
+```
+local   all             postgres                                peer
+local   all             all                                     peer
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+```
+
 
 ## Ruby
 
 ### System dependencies
 
-```
+```sh
 $ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev g++ libsqlite3-dev libpq-dev
 ```
 
 See [Ruby installation](https://github.com/rhannequin/upgrade-ubuntu#ruby).
 
-## MongoDB
+```sh
+$ gem install bundler
+```
+
+
+## Application
+
+From local environment:
 
 ```sh
-$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-$ echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-$ sudo apt-get update
-$ sudo apt-get install -y mongodb-org
-```
-
-Edit the configuration file `/etc/mongod.conf` and ensure to enable those parameters:
-
-```
-auth = true
-httpinterface = false
-```
-
-Launch `$ mongo` and create admin and user:
-
-```
-> use admin
-> db.createUser({ user: 'admin', pwd: 'xxx', roles: [{ role: 'userAdminAnyDatabase', db: 'admin' }] })
-> db.auth('admin', 'xxx')
-> use my_database
-> db.createUser({ user: 'xxx', pwd: 'xxx', roles: [{ role: 'readWrite', db: 'xxx' }] })
+$ bundle exec cap production setup
+$ bundle exec cap production puma:config
+$ bundle exec cap production deploy
 ```

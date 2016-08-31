@@ -18,7 +18,7 @@ module Macros
 
     def log_in_with_omniauth(provider)
       send :"mock_auth_#{provider}"
-      visit user_omniauth_authorize_path(provider: provider)
+      visit (send :"user_#{provider}_omniauth_authorize_path")
     end
   end
 end

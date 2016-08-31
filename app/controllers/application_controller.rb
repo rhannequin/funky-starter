@@ -7,21 +7,17 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
-    if request.env['HTTP_REFERER'].present?
-      redirect_to :back
-    else
-      redirect_to root_url
-    end
+    redirect_back(fallback_location: root_url)
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| account_params(u) }
-    devise_parameter_sanitizer.for(:account_update) { |u| account_params(u) }
+    devise_parameter_sanitizer.permit(:sign_up, keys: account_params)
+    devise_parameter_sanitizer.permit(:account_update, keys: account_params)
   end
 
-  def account_params(p)
-    p.permit %i(name email password password_confirmation current_password)
+  def account_params
+    %i(name email password password_confirmation current_password)
   end
 end

@@ -11,7 +11,7 @@ task :fork, :location do |_, args|
   files = %w(
     README.md
     config/application.rb
-    config/mongoid.yml
+    config/database.yml
     config/initializers/session_store.rb
     config/locales/en.yml
     config/locales/fr.yml
