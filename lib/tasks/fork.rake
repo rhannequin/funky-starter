@@ -7,26 +7,39 @@ task :fork, :location do |_, args|
   module_name = to_module_name folder
   project_string = module_name.downcase
   project_name = project_string.capitalize
+  variable_string = to_variable_name folder
+  project_title = to_project_title folder
 
   files = %w(
     README.md
+    install.md
     config/application.rb
     config/database.yml
+    config/deploy.rb
+    config/deploy.rb
+    config/deploy.example.rb
+    config/environments/production.rb
     config/initializers/session_store.rb
     config/locales/en.yml
     config/locales/fr.yml
+    config/nginx.conf
+    lib/tasks/fork.rake
   )
 
   FileUtils.cp_r Dir.pwd, location
 
   files.each do |file|
     full_path = "#{location}/#{file}"
-    text = File.read full_path
-    text = text.gsub(/funkystarter/, project_string)
-    text = text.gsub(/Funkystarter/, project_name)
-    text = text.gsub(/FunkyStarter/, module_name)
-    text = text.gsub(/Funky Starter/, module_name)
-    File.open(full_path, 'w') { |f| f.puts text }
+    if File.file?(full_path)
+      text = File.read full_path
+      text = text.gsub(/funky-starter/, folder)
+      text = text.gsub(/funky_starter/, variable_string)
+      text = text.gsub(/funkystarter/, project_string)
+      text = text.gsub(/Funkystarter/, project_name)
+      text = text.gsub(/FunkyStarter/, module_name)
+      text = text.gsub(/Funky Starter/, project_title)
+      File.open(full_path, 'w') { |f| f.puts text }
+    end
   end
 end
 
@@ -36,4 +49,12 @@ end
 
 def to_module_name(str)
   str.split('-').map(&:capitalize).join('')
+end
+
+def to_project_title(str)
+  str.split('-').map(&:capitalize).join(' ')
+end
+
+def to_variable_name(str)
+  str.split('-').join('_')
 end
