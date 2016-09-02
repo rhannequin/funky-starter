@@ -55,7 +55,7 @@ en:
       new:
         sign_up: Sign up
       provider:
-        provider_account: Your account is linked to a social network, you don't have credentials to change.
+        provider_account: "Your account is linked to a social network, you don't have credentials to change."
     sessions:
       destroy:
         sign_out: Sign out
