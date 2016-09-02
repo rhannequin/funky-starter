@@ -52,9 +52,6 @@ gem 'responders'
 # Simple Form
 gem 'simple_form'
 
-group :development, :test do
-end
-
 group :development do
   gem 'spring'                                # Keeps application running in the background
   gem 'web-console'                           # Web Console
