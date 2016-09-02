@@ -1,6 +1,6 @@
 <%-
 resources = [
-  { model: User, right: :manage, key: 'users', path: admin_users_path }
+  { model: User, right: :manage, path: admin_users_path }
 ]
 can_see_admin_navbar = resources.map { |h| can?(h[:right], h[:model]) }.include?(true)
 %>
