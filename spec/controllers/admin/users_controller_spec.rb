@@ -77,7 +77,7 @@ describe Admin::UsersController, type: :controller do
     it 'displays success flash message' do
       delete :destroy, params: { id: user_to_destroy.id }
       expect(flash[:notice]).to be_present
-      expect(flash[:notice]).to eq(I18n.t(:'controllers.users.destroy.flash.success'))
+      expect(flash[:notice]).to eq(I18n.t(:'flash.admin.users.destroy.success'))
       expect(flash[:error]).not_to be_present
     end
 

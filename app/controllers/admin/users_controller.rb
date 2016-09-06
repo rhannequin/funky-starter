@@ -12,7 +12,7 @@ module Admin
     def destroy
       @user.errors[:base] << :is_current_user unless can?(:destroy, @user)
       @user.destroy
-      flash[:notice] = t(:'controllers.users.destroy.flash.success')
+      flash[:notice] = t(:'flash.admin.users.destroy.success')
       redirect_to action: :index
     end
 

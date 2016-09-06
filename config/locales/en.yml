@@ -30,11 +30,6 @@ en:
         activity: Activity
         general: General
         title: User %{name}
-  controllers:
-    users:
-      destroy:
-        flash:
-          success: User deleted.
   devise:
     passwords:
       edit:
@@ -69,6 +64,11 @@ en:
         sign_in: Sign in
         sign_in_with_provider: Sign in with provider
         sign_up: Sign up
+  flash:
+    admin:
+      users:
+        destroy:
+          success: User deleted.
   home:
     index:
       title: Home page

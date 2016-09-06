@@ -30,11 +30,6 @@ fr:
         activity: Activité
         general: Général
         title: Utilisateur %{name}
-  controllers:
-    users:
-      destroy:
-        flash:
-          success: Utilisateur supprimé.
   devise:
     passwords:
       edit:
@@ -69,6 +64,11 @@ fr:
         sign_in: Connexion
         sign_in_with_provider: Connexion avec %{provider}
         sign_up: Inscription
+  flash:
+    admin:
+      users:
+        destroy:
+          success: Utilisateur supprimé.
   home:
     index:
       title: Page d'accueil
