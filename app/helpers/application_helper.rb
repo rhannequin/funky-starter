@@ -29,6 +29,10 @@ module ApplicationHelper
   end
 
   def active_class(path)
-    'active' if current_page? path
+    if path.kind_of?(Array)
+      'active' if path.map { |p| current_page?(p) }.include?(true)
+    else
+      'active' if current_page? path
+    end
   end
 end
