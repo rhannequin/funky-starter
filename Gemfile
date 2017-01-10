@@ -11,14 +11,13 @@ gem 'pg'
 gem 'puma'
 
 # Authentication
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 # Soft-delete
-gem 'paranoia', github: 'rubysherpas/paranoia',
-                branch: 'rails5'
+gem 'paranoia'
 
 # Authorization
 gem 'cancancan'
@@ -62,9 +61,7 @@ group :development do
   gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
   gem 'capistrano3-puma',      require: false # Puma support for Capistrano
-  gem 'capistrano-figaro-yml', require: false,
-                               github: 'sedx/capistrano-figaro-yml',
-                               branch: 'use_env_as_string' # Figaro's config/application.yml support for Capistrano
+  gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
 end
 
 group :test do
