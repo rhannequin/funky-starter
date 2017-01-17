@@ -29,6 +29,7 @@
 
 # Nginx
 /config/nginx.conf
+/config/nginx_ssl.conf
 
 # Deployment
 /config/deploy.rb
