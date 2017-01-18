@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/rhannequin/capistrano-puma.git
+  revision: bce9da7cedfbb90379fa65bb84396cf75e0d5b34
+  branch: daemonize-config
+  specs:
+    capistrano3-puma (2.0.0)
+      capistrano (~> 3.5)
+      capistrano-bundler
+      puma (~> 3.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,9 +81,6 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano3-puma (1.2.1)
-      capistrano (~> 3.0)
-      puma (>= 2.6)
     capybara (2.11.0)
       addressable
       mime-types (>= 1.16)
@@ -331,7 +338,7 @@ DEPENDENCIES
   capistrano-figaro-yml
   capistrano-rails
   capistrano-rvm
-  capistrano3-puma
+  capistrano3-puma!
   capybara
   coffee-rails
   database_cleaner

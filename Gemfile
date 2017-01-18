@@ -60,7 +60,9 @@ group :development do
   gem 'capistrano-rvm',        require: false # RVM support for Capistrano
   gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
-  gem 'capistrano3-puma',      require: false # Puma support for Capistrano
+  gem 'capistrano3-puma',      git: 'https://github.com/rhannequin/capistrano-puma.git',
+                               branch: 'daemonize-config',
+                               require: false # Puma support for Capistrano
   gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
 end
 
