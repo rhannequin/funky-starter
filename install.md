@@ -103,9 +103,9 @@ $ sudo apt-get install postgresql postgresql-contrib
 ```sh
 $ sudo -i -u postgres
 $ psql
-postgres=# CREATE USER fspp;
-postgres=# CREATE DATABASE fspp_production OWNER fspp;
-postgres=# ALTER USER fspp WITH ENCRYPTED PASSWORD 'xxx';
+postgres=# CREATE USER app;
+postgres=# CREATE DATABASE app_production OWNER app;
+postgres=# ALTER USER app WITH ENCRYPTED PASSWORD 'xxx';
 postgres=# \q
 $ exit
 ```
@@ -149,4 +149,14 @@ From local environment:
 $ bundle exec cap production setup
 $ bundle exec cap production puma:config
 $ bundle exec cap production deploy
+```
+
+### Autoloaded `init.d` script
+
+Create file `/etc/init.d/app` and fill it with [init.d.txt](https://github.com/rhannequin/funky-starter/blob/master/init.d.txt).
+
+```bash
+$ sudo chmod 0755 /etc/init.d/app
+$ systemctl daemon-reload
+$ sudo update-rc.d app defaults
 ```
