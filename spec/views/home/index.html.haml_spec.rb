@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'home/index.html.erb' do
+describe 'home/index.html.haml' do
   it 'displays welcome message' do
     render
     # Test only first character

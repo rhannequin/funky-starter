@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
+    %meta{content: 'width=device-width, initial-scale=1', name: 'viewport'}
+
+    %title
+      #{t(:'layouts.application_name')} - #{t(:'layouts.admin_panel_title')}
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+
+  %body
+
+    .container
+      = render 'layouts/header'
+      = render 'layouts/alerts'
+
+      %div
+        - if user_signed_in?
+          %p= t :'layouts.welcome', user: current_user.name
+
+      = yield

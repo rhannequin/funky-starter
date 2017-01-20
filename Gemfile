@@ -16,6 +16,9 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+# Templating engine
+gem 'haml-rails'
+
 # Soft-delete
 gem 'paranoia'
 

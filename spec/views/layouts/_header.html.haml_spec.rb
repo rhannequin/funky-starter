@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'layouts/_header.html.erb' do
+describe 'layouts/_header.html.haml' do
   describe 'general information' do
     it 'shows application name and root path link' do
       allow(view).to receive_messages(current_user: nil)

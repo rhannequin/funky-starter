@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'layouts/application.html.erb' do
+describe 'layouts/application.html.haml' do
   describe 'general information' do
     it "shows current user's name" do
       user = create :user

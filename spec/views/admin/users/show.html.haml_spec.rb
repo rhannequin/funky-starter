@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'admin/users/show.html.erb' do
+describe 'admin/users/show.html.haml' do
   describe 'usual scenario' do
     let(:user) { create :user, :already_signed_in }
 

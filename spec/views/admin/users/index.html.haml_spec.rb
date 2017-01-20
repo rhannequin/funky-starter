@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'admin/users/index.html.erb' do
+describe 'admin/users/index.html.haml' do
   before(:each) do
     allow(view).to receive_messages(current_user: nil)
   end
