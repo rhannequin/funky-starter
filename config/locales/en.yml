@@ -81,7 +81,6 @@ en:
       admin:
         name: Admin
       home: Accueil
-    welcome: Welcome, %{user}
   scaffold:
     actions: Actions
     back: Back
