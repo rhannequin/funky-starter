@@ -8,10 +8,10 @@
     %p= @user.id
   .col-md-3
     %h4= User.human_attribute_name(:name)
-    %p= @user.name
+    %p= h @user.name
   .col-md-3
     %h4= User.human_attribute_name(:email)
-    %p= @user.email.nil? ? empty_char : @user.email
+    %p=  h(@user.email.nil? ? empty_char : @user.email)
   .col-md-3
     %h4= User.human_attribute_name(:provider)
     %p= provider_profile_link @user.provider, @user.uid
@@ -40,7 +40,7 @@
     %h4= User.human_attribute_name(:sign_in_count)
     %p= @user.sign_in_count
 
-%hr
+%hr/
 
 %p
   = link_to t(:'scaffold.back'), admin_users_path, class: 'btn btn-default'
