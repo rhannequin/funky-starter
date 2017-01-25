@@ -5,6 +5,6 @@ describe 'home/index.html.haml' do
     render
     # Test only first character
     # because accented words not well displayed in rendered content
-    expect(rendered.html_safe).to include(I18n.t(:'home.index.title').first)
+    expect(safe_join([raw(rendered)])).to include(I18n.t(:'home.index.title').first)
   end
 end

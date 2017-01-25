@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.x'
 
 # Database
-gem 'sqlite3'
 gem 'pg'
+gem 'sqlite3'
 
 # Webserver
 gem 'puma'
@@ -13,8 +13,8 @@ gem 'puma'
 # Authentication
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Templating engine
 gem 'haml-rails'
@@ -55,28 +55,28 @@ gem 'responders'
 gem 'simple_form'
 
 group :development do
-  gem 'spring'                                # Keeps application running in the background
-  gem 'web-console'                           # Web Console
-  gem 'quiet_assets'                          # Turns off the Rails asset pipeline log
-  gem 'rubocop'                               # Ruby style guide
   gem 'capistrano',            require: false # Deployment
-  gem 'capistrano-rvm',        require: false # RVM support for Capistrano
   gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
+  gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
+  gem 'capistrano-rvm',        require: false # RVM support for Capistrano
   gem 'capistrano3-puma',      git: 'https://github.com/rhannequin/capistrano-puma.git',
                                branch: 'daemonize-config',
                                require: false # Puma support for Capistrano
-  gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
+  gem 'quiet_assets'                          # Turns off the Rails asset pipeline log
+  gem 'rubocop'                               # Ruby style guide
+  gem 'spring'                                # Keeps application running in the background
+  gem 'web-console'                           # Web Console
 end
 
 group :test do
-  gem 'rspec-rails'                           # RSpec test framework
-  gem 'factory_girl_rails'                    # Factories
   gem 'capybara'                              # Integration tests
+  gem 'database_cleaner'                      # Clean database during tests
+  gem 'factory_girl_rails'                    # Factories
   gem 'faker'                                 # Use real values to fake for factories
   gem 'i18n-tasks'                            # Finds and manage missing and unused translations
-  gem 'database_cleaner'                      # Clean database during tests
   gem 'rails-controller-testing'              # Support for assigns and assert_template
+  gem 'rspec-rails'                           # RSpec test framework
   gem 'simplecov', require: false             # Test coverage
 end
 

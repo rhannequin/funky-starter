@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def empty_char
-    '&#8709;'.html_safe
+    safe_join [raw('&#8709;')]
   end
 
   def provider_profile_link(provider, uid)
@@ -29,10 +29,10 @@ module ApplicationHelper
   end
 
   def active_class(path)
-    if path.kind_of?(Array)
+    if path.is_a?(Array)
       'active' if path.map { |p| current_page?(p) }.include?(true)
-    else
-      'active' if current_page? path
+    elsif current_page?(path)
+      'active'
     end
   end
 end

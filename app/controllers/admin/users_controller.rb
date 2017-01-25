@@ -6,8 +6,7 @@ module Admin
       @users = User.all
     end
 
-    def show
-    end
+    def show; end
 
     def destroy
       @user.errors[:base] << :is_current_user unless can?(:destroy, @user)
