@@ -22,6 +22,10 @@ fr:
         one: utilisateur
         other: utilisateurs
   admin:
+    home:
+      index:
+        sub_title: Bienvenue sur votre tableau de bord d'administration.
+        title: Administration
     users:
       index:
         cant_delete_yourself: Vous ne pouvez pas vous supprimer vous-même
@@ -79,6 +83,7 @@ fr:
       account:
         settings: Paramètres
       admin:
+        home: Tableau de bord
         name: Admin
       home: Accueil
   scaffold:

@@ -6,6 +6,7 @@ class Ability
 
     if user.has_role?(:admin)
       can :manage, :all
+      can :read, :admin_homepage
       cannot :destroy, User, id: user.id
     end
   end

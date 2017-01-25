@@ -22,6 +22,10 @@ en:
         one: user
         other: users
   admin:
+    home:
+      index:
+        sub_title: Welcome to your Administration Dashboard.
+        title: Administration
     users:
       index:
         cant_delete_yourself: You can't delete yourself
@@ -79,6 +83,7 @@ en:
       account:
         settings: Settings
       admin:
+        home: Dashboard
         name: Admin
       home: Accueil
   scaffold:
