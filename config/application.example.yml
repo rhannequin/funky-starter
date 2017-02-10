@@ -17,14 +17,26 @@ TWITTER_KEY: xxx
 TWITTER_SECRET: xxx
 
 development:
-  DB_NAME: db/development.sqlite3
-  SECRET_KEY_BASE: "abc123_dev"
+  COOKIE_STORE_KEY: "abc123_dev"
+  DB_HOST: localhost
+  DB_DATABASE: fspp_development
+  DB_SCHEMA: public
+  DB_USERNAME: xxx
+  DB_PASSWORD: xxx
+  DB_PORT: "5432"
   DEVISE_SECRET_KEY: "abc123_dev"
+  SECRET_KEY_BASE: "abc123_dev"
 
 test:
-  DB_NAME: db/test.sqlite3
-  SECRET_KEY_BASE: "abc123_test"
+  COOKIE_STORE_KEY: "abc123_test"
+  DB_HOST: localhost
+  DB_DATABASE: fspp_test
+  DB_SCHEMA: public
+  DB_USERNAME: xxx
+  DB_PASSWORD: xxx
+  DB_PORT: "5432"
   DEVISE_SECRET_KEY: "abc123_test"
+  SECRET_KEY_BASE: "abc123_test"
 
 production:
   APP_EMAIL_SENDER: "you.email@domain.com"

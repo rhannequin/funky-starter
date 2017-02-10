@@ -2,7 +2,7 @@ sqlite: &sqlite
   adapter: sqlite3
   pool: 5
   timeout: 5000
-  database: <%= ENV['DB_NAME'] %>
+  database: <%= ENV['DB_DATABASE'] %>
 
 postgresql: &postgresql
   adapter: postgresql
@@ -20,10 +20,10 @@ postgresql: &postgresql
 # Environments
 
 test:
-  <<: *sqlite
+  <<: *postgresql
 
 development:
-  <<: *sqlite
+  <<: *postgresql
 
 production:
   <<: *postgresql
