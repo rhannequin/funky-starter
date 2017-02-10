@@ -28,6 +28,7 @@ test:
 
 production:
   APP_EMAIL_SENDER: "you.email@domain.com"
+  DEVISE_SECRET_KEY: abc123_prod
   DB_HOST: xxx
   DB_DATABASE: xxx
   DB_SCHEMA: xxx

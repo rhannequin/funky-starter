@@ -56,7 +56,7 @@ search:
   #   - app/views
 
   ## File.fnmatch patterns to exclude from search (default)
-  # exclude: ["*.jpg", "*.png", "*.gif", "*.svg", "*.ico", "*.eot", "*.ttf", "*.woff", "*.pdf"]
+  exclude: ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.svg", "*.ico", "*.eot", "*.ttf", "*.woff", "*.pdf"]
 
   ## Or, File.fnmatch patterns to include
   # include: ["*.rb", "*.html.slim"]

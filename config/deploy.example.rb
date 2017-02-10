@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.6.0'
+lock '3.7.1'
 
 set :application, 'funky-starter'
 set :repo_url,    'https://example.com/repo.git'
@@ -68,6 +68,7 @@ set :puma_error_log,          "#{release_path}/log/puma.error.log"
 set :puma_preload_app,        true
 set :puma_worker_timeout,     nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
+
 
 namespace :deploy do
   desc 'Restart application'
