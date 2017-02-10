@@ -5,7 +5,6 @@ gem 'rails', '~> 5.x'
 
 # Database
 gem 'pg'
-gem 'sqlite3'
 
 # Webserver
 gem 'puma'
