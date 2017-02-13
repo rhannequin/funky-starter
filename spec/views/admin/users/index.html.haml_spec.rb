@@ -40,6 +40,21 @@ describe 'admin/users/index.html.haml' do
     end
   end
 
+  describe 'about friendly_id' do
+    let(:name) { 'jane' }
+    let(:user) { create :user, name: name }
+
+    before(:each) do
+      user.grant :admin
+      assign :users, [user]
+    end
+
+    it 'has name in url' do
+      render
+      expect(admin_user_path(user)).to include(name)
+    end
+  end
+
   describe 'with OmniAuth accounts' do
     it 'displays username' do
       users = [create(:user, :with_twitter_account), create(:user, :with_twitter_account)]

@@ -48,6 +48,32 @@ describe User, type: :model do
     end
   end
 
+  describe 'name' do
+    it 'must be unique' do
+      name = 'Jane'
+      create :user, name: name
+      expect(build(:user, name: name)).not_to be_valid
+    end
+  end
+
+  describe 'slug' do
+    let(:user) { create :user }
+
+    it 'changes when name is changed' do
+      slug = user.slug
+      user.name = 'Jane'
+      user.save
+      expect(user.slug).not_to eq(slug)
+    end
+
+    it 'stays the same if the name does not change' do
+      slug = user.slug
+      user.email = 'example@test.com'
+      user.save
+      expect(user.slug).to eq(slug)
+    end
+  end
+
   describe 'soft delete' do
     it 'is properly deleted' do
       user # Used to say to RSpec that we need that record

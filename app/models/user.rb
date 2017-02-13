@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend FriendlyId
+
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -6,6 +8,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
   acts_as_paranoid
+
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  validates :name, presence: true, uniqueness: true
+
+  def slug_candidates
+    [ :name, [:name, :uid] ]
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid)

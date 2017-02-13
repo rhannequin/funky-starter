@@ -21,6 +21,9 @@ gem 'haml-rails'
 # Soft-delete
 gem 'paranoia'
 
+# Slugging and permalink
+gem 'friendly_id'
+
 # Authorization
 gem 'cancancan'
 gem 'rolify'
