@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  after_update :notify_email_change, if: -> { email_changed? }
+
   def slug_candidates
     [:name, [:name, :uid]]
   end
@@ -33,5 +35,12 @@ class User < ApplicationRecord
     user.email = auth.info.email
     user.password = Devise.friendly_token[0, 20]
     user
+  end
+
+  private
+
+  def notify_email_change
+    UserMailer.email_changed_email(self, email_was, email_was).deliver_now
+    UserMailer.email_changed_email(self, email_was, email).deliver_now
   end
 end
