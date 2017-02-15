@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+         :omniauthable, :lockable
   acts_as_paranoid
 
   friendly_id :slug_candidates, use: [:slugged, :finders]
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def slug_candidates
-    [ :name, [:name, :uid] ]
+    [:name, [:name, :uid]]
   end
 
   def should_generate_new_friendly_id?

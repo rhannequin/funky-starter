@@ -9,13 +9,14 @@ fr:
         id: Identifiant
         last_sign_in_at: Date dernière connexion
         last_sign_in_ip: IP dernière connexion
+        locked_at: Date de verrouillage de compte
         name: Nom d'utilisateur
         password: Mot de passe
         password_confirmation: Confirmez le mot de passe
         provider: Fournisseur
         remember_me: Se souvenir de moi
         roles: Rôles
-        sign_in_count: Nombre de connexon
+        sign_in_count: Nombre de connexions
         updated_at: Date de mise à jour
     models:
       user:
