@@ -29,6 +29,7 @@ This is a sample Rails application. Here's what is installed:
 * [Rubocop](https://github.com/bbatsov/rubocop) for code review
 * [Figaro](https://github.com/laserlemon/figaro) for git-ignored configuration file
 * [Capistrano](http://capistranorb.com) for automatic deployment
+* [Brakeman](https://github.com/presidentbeef/brakeman) for security vulnerabilities analysis
 
 
 ## Requirements

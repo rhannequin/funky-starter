@@ -60,6 +60,7 @@ gem 'responders'
 gem 'simple_form'
 
 group :development do
+  gem 'brakeman',              require: false # Vulnerabilities
   gem 'capistrano',            require: false # Deployment
   gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
   gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
