@@ -26,5 +26,7 @@ module Funkystarter
     config.generators do |g|
       g.factory_girl false
     end
+
+    config.middleware.use Rack::Attack
   end
 end
