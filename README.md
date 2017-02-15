@@ -14,6 +14,7 @@ This is a sample Rails application. Here's what is installed:
 * [friendly_id](https://github.com/norman/friendly_id) slugging and permalink plugins
 * [Puma](https://github.com/puma/puma) web server
 * [nginx](http://nginx.org) application server configuration ready
+* [Rack::Attack](https://github.com/kickstarter/rack-attack) middleware for blocking & throttling abusive requests
 * [Simple Form](https://github.com/plataformatec/simple_form)
 * [Sass](http://sass-lang.com/guide) for CSS
 * [CoffeeScript](http://coffeescript.org/) for JavaScript
@@ -101,3 +102,7 @@ Views are generated from Haml files and not ERB.
 ### I18n
 
 Everything (almost) is supported in English and French.
+
+### Rack::Attack
+
+Rack middleware for blocking & throttling abusive requests. Use the default [configuration](https://github.com/rhannequin/funky-starter/blob/master/config/initializers/rack-attack.rb).

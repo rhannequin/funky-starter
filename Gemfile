@@ -9,6 +9,9 @@ gem 'pg'
 # Webserver
 gem 'puma'
 
+# Rack plugins
+gem 'rack-attack'
+
 # Authentication
 gem 'devise'
 gem 'omniauth'
