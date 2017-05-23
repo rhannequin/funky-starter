@@ -74,7 +74,7 @@ group :development do
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
   gem 'capistrano-rvm',        require: false # RVM support for Capistrano
   gem 'capistrano3-puma',      require: false # Puma support for Capistrano
-  gem 'quiet_assets'                          # Turns off the Rails asset pipeline log
+  gem 'listen'
   gem 'rubocop'                               # Ruby style guide
   gem 'spring'                                # Keeps application running in the background
   gem 'web-console'                           # Web Console
