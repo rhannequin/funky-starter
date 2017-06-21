@@ -35,8 +35,8 @@ This is a sample Rails application. Here's what is installed:
 ## Requirements
 
 * Git
-* Ruby 2.3.x
-* Bundler 1.13.x
+* Ruby 2.4.x
+* Bundler 1.15.x
 
 
 ## Usage
