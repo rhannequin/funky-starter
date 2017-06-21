@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  after_update :notify_email_change, if: -> { email_changed? }
+  after_update :notify_email_change, if: -> { saved_change_to_email? }
 
   def slug_candidates
     [:name, [:name, :uid]]
@@ -40,7 +40,7 @@ class User < ApplicationRecord
   private
 
   def notify_email_change
-    UserMailer.email_changed_email(self, email_was, email_was).deliver_now
-    UserMailer.email_changed_email(self, email_was, email).deliver_now
+    UserMailer.email_changed_email(self, email_before_last_save, email_before_last_save).deliver_now
+    UserMailer.email_changed_email(self, email_before_last_save, email).deliver_now
   end
 end

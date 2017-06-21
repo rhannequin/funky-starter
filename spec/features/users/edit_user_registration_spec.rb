@@ -21,6 +21,7 @@ feature 'User edit registration' do
     end
 
     describe 'when a user changes personal information' do
+      before { Setting.create email: 'test@example.com' }
       let(:new_name) { build(:user).name }
 
       background do
