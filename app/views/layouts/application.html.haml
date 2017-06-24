@@ -10,7 +10,12 @@
     %title= t :'layouts.application_name'
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-
+    
+    :javascript
+      // Get current locale from server
+      var APP = window.APP = {}
+      APP.locale = '#{I18n.locale}'
+    
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
