@@ -40,7 +40,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # RVM setup
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1'
+set :rvm_ruby_version, '2.4.1'
 
 # Bundler setup
 set :bundle_without, %w(development test).join(' ')
