@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Setting.first.email
+  default from: Setting.exists? ? Setting.first.email : 'test@example.com'
   layout 'mailer'
 end

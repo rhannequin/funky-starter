@@ -106,6 +106,7 @@ $ psql
 postgres=# CREATE USER app;
 postgres=# CREATE DATABASE app_production OWNER app;
 postgres=# ALTER USER app WITH ENCRYPTED PASSWORD 'xxx';
+postgres=# CREATE EXTENSION "uuid-ossp";
 postgres=# \q
 $ exit
 ```
@@ -148,7 +149,7 @@ From local environment:
 ```sh
 $ bundle exec cap production setup
 $ bundle exec cap production puma:config
-$ bundle exec cap production deploy
+$ bundle exec cap production deploy --trace
 ```
 
 ### Autoloaded `init.d` script

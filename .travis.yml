@@ -15,3 +15,5 @@ script:
   - bundle exec rake spec
 env:
   - APP_EMAIL_SENDER="test@example.com" COOKIE_STORE_KEY=abc123_test DEVISE_PEPPER=abc123_test DEVISE_SECRET_KEY=abc123_test SECRET_KEY_BASE=abc123_test
+dist: trusty
+sudo: required
