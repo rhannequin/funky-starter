@@ -12,7 +12,7 @@ module Macros
       )
     end
 
-    %i(twitter facebook).each do |provider|
+    %i[twitter facebook].each do |provider|
       provides_mock_for provider
     end
 

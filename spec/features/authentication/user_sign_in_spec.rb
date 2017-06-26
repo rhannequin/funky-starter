@@ -34,7 +34,7 @@ feature 'Sign in' do
     end
   end
 
-  %w(twitter facebook).each do |provider|
+  %w[twitter facebook].each do |provider|
     describe "when signing up with #{provider.capitalize}" do
       background do
         log_in_with_omniauth(provider)

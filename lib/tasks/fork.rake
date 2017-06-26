@@ -43,15 +43,15 @@ def to_variable_name(str)
 end
 
 def files
-  %w(
+  %w[
     README.md
     install.md
     lib/tasks/fork.rake
-  ) + config_files
+  ] + config_files
 end
 
 def config_files
-  %w( config/application.rb
+  %w[ config/application.rb
       config/database.yml
       config/deploy.rb
       config/deploy.example.rb
@@ -59,5 +59,5 @@ def config_files
       config/initializers/session_store.rb
       config/locales/en.yml
       config/locales/fr.yml
-      config/nginx.conf )
+      config/nginx.conf ]
 end

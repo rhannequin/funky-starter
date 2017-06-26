@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '', to: 'home#index'
-    resources :users, only: [:index, :show, :destroy]
+    resources :users, only: %i[index show destroy]
   end
 end

@@ -107,7 +107,7 @@ describe Admin::UsersController, type: :controller do
 
     before(:each) do
       sign_in user
-      request.env["HTTP_REFERER"] = previous_page
+      request.env['HTTP_REFERER'] = previous_page
     end
 
     it 'redirects to previous page if not authorized' do

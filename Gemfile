@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.x'
 
 # Database
-gem 'pg'
 gem 'bcrypt'
+gem 'pg'
 
 # Webserver
 gem 'puma'
