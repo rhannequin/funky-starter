@@ -25,12 +25,18 @@ gem 'haml-rails'
 # Soft-delete
 gem 'paranoia'
 
+# Visits and events tracking
+gem 'ahoy_matey'
+
 # Slugging and permalink
 gem 'friendly_id'
 
 # Authorization
 gem 'cancancan'
 gem 'rolify'
+
+# Pagination
+gem 'kaminari'
 
 # Environment configuration
 gem 'figaro'

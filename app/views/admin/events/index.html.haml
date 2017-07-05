@@ -1,0 +1,34 @@
+%h2= t :'.title'
+
+%p
+  = paginate @events
+
+%table.table
+  %thead
+    %tr
+      %th #
+      - %i( name properties visit user time ).each do |att|
+        %th= Ahoy::Event.human_attribute_name(att)
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.id.split('-').first
+        %td= event.name
+        %td
+          %ul
+            - event.properties.each do |key, value|
+              %li= "#{key.capitalize}: #{value}"
+        %td
+          - if event.user
+            = event.visit.id.split('-').first
+          - else
+            &empty;
+        %td
+          - if event.user
+            = link_to event.user.name, admin_user_path(event.user)
+          - else
+            &empty;
+        %td= l event.time, format: :digits
+
+%p
+  = paginate @events

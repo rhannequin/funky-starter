@@ -9,6 +9,8 @@ class User < ApplicationRecord
          :omniauthable, :lockable
   acts_as_paranoid
 
+  has_many :visits
+
   friendly_id :slug_candidates, use: %i[slugged finders]
 
   validates :name, presence: true, uniqueness: true

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   # Add some fields to Devise account models
   before_action :configure_permitted_parameters, if: :devise_controller?
+  after_action :ahoy_track
 
   # Redirect if trying to access an unauthorized action
   rescue_from CanCan::AccessDenied do |exception|
@@ -21,5 +22,9 @@ class ApplicationController < ActionController::Base
 
   def account_params
     %i[name email password password_confirmation current_password]
+  end
+
+  def ahoy_track
+    ahoy.track_visit
   end
 end

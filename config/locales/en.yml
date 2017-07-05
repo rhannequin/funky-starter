@@ -2,6 +2,12 @@
 en:
   activerecord:
     attributes:
+      ahoy/event:
+        name: Name
+        properties: Properties
+        time: Time
+        user: User
+        visit: Visit
       user:
         created_at: Signed up
         current_password: Current password
@@ -19,10 +25,16 @@ en:
         sign_in_count: Sign in count
         updated_at: Updated
     models:
+      ahoy/event:
+        one: event
+        other: events
       user:
         one: user
         other: users
   admin:
+    events:
+      index:
+        title: List of events
     home:
       index:
         sub_title: Welcome to your Administration Dashboard.
@@ -115,12 +127,15 @@ en:
       admin:
         home: Dashboard
         name: Admin
-      home: Accueil
+      home: Home
   scaffold:
     actions: Actions
     back: Back
     confirm: Are you sure you want to delete?
     delete: Delete
+  time:
+    formats:
+      digits: "%Y/%m/%d %Hh%M:%S"
   unauthorized:
     default: You are not authorized to access this page.
     destroy:

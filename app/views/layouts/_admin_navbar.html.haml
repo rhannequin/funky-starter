@@ -1,4 +1,5 @@
 - resources = [{ model: User, right: :manage, path: admin_users_path }]
+- resources << { model: Ahoy::Event, right: :manage, path: admin_events_path }
 
 - can_see_admin_navbar = resources.map { |h| can?(h[:right], h[:model]) }.include?(true)
 

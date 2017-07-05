@@ -2,6 +2,12 @@
 fr:
   activerecord:
     attributes:
+      ahoy/event:
+        name: Nom
+        properties: Propriétés
+        time: Heure
+        user: Utilisateur
+        visit: Visite
       user:
         created_at: Date d'inscription
         current_password: Mot de passe actuel
@@ -19,10 +25,16 @@ fr:
         sign_in_count: Nombre de connexions
         updated_at: Date de mise à jour
     models:
+      ahoy/event:
+        one: événement
+        other: événements
       user:
         one: utilisateur
         other: utilisateurs
   admin:
+    events:
+      index:
+        title: Liste des événements
     home:
       index:
         sub_title: Bienvenue sur votre tableau de bord d'administration.
@@ -121,6 +133,9 @@ fr:
     back: Retour
     confirm: "Êtes-vous sûr(e) de vouloir supprimer ?"
     delete: Supprimer
+  time:
+    formats:
+      digits: "%d/%m/%Y %Hh%M:%S"
   unauthorized:
     default: Vous n'êtes pas autorisé(e) à accéder à cette page.
     destroy:
