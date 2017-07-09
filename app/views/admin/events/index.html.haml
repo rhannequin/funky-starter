@@ -12,7 +12,7 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= event.id.split('-').first
+        %td= short_uuid(event.id)
         %td= event.name
         %td
           %ul
@@ -20,7 +20,7 @@
               %li= "#{key.capitalize}: #{value}"
         %td
           - if event.user
-            = event.visit.id.split('-').first
+            = short_uuid(event.visit.id)
           - else
             &empty;
         %td

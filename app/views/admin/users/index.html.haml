@@ -10,7 +10,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= link_to user.id.split('-').first, admin_user_path(user)
+        %td= link_to short_uuid(user.id), admin_user_path(user)
         %td= h user.name
         %td= h(user.email.nil? ? empty_char : user.email)
         %td= provider_profile_link user.provider, user.uid

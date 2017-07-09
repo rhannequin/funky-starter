@@ -67,9 +67,8 @@ search:
 #   api_key: "AbC-dEf5"
 
 ## Consider these keys not missing
-# ignore_missing:
-# - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
-# - '{devise,simple_form}.*'
+ignore_missing:
+- 'views.pagination.*'
 
 ## Consider these keys used
 ignore_unused:
@@ -82,6 +81,7 @@ ignore_unused:
 - 'activerecord.models.*'
 - 'unauthorized.*'
 - 'devise.mailer.*.subject'
+- 'time.*'
 
 ## Exclude these keys from `i18n-tasks eq-base' report
 # ignore_eq_base:

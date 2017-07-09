@@ -35,4 +35,8 @@ module ApplicationHelper
       'active'
     end
   end
+
+  def short_uuid(uuid)
+    uuid.split('-').first
+  end
 end

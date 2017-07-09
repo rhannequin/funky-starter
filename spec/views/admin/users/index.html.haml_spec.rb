@@ -15,7 +15,7 @@ describe 'admin/users/index.html.haml' do
     it 'displays users attributes' do
       render
       users.each do |user|
-        expect(rendered).to include(user.id.to_s)
+        expect(rendered).to include(short_uuid(user.id))
         expect(rendered).to include(user.name)
         expect(rendered).to include(user.email)
         expect(rendered).to include(l(user.created_at, format: :short))
