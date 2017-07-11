@@ -24,6 +24,12 @@ fr:
         roles: Rôles
         sign_in_count: Nombre de connexions
         updated_at: Date de mise à jour
+      visit:
+        country: Pays
+        latitude: Latitude
+        longitude: longitude
+        user: Utilisateur
+        user_agent: User Agent
     models:
       ahoy/event:
         one: événement
@@ -31,6 +37,9 @@ fr:
       user:
         one: utilisateur
         other: utilisateurs
+      visit:
+        one: visite
+        other: visites
   admin:
     events:
       index:
@@ -47,6 +56,11 @@ fr:
         activity: Activité
         general: Général
         title: Utilisateur %{name}
+    visits:
+      index:
+        title: Liste des visites
+      show:
+        title: Détail d'une visite
   devise:
     confirmations:
       new:

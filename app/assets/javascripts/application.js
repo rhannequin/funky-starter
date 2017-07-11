@@ -16,4 +16,4 @@
 //= require ahoy
 //= require turbolinks
 
-// ahoy.trackAll();
+ahoy.trackAll();

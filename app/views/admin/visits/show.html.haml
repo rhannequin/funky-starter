@@ -1,0 +1,75 @@
+%h2= t :'.title'
+
+%p.pull-right= link_to t(:'scaffold.back'), admin_visits_path, class: 'btn btn-default'
+
+%p= @visit.inspect
+
+%h3 Visitor
+
+.row
+  .col-md-2
+    %h4= Visit.human_attribute_name(:user)
+    %p= link_to(@visit.user.name, admin_user_path(@visit.user)) || empty_char
+  .col-md-2
+    %h4= User.human_attribute_name(:created_at)
+    %p= l @visit.user.created_at, format: :short
+
+%h3 Location
+
+.row
+  - %i[country region city postal_code latitude longitude].each do |k|
+    .col-md-2
+      %h4= Visit.human_attribute_name(k)
+      %p= @visit.send(k) || empty_char
+
+%h3 Browser
+
+.row
+  - %i[ip user_agent referrer referring_domain search_keyword].each do |k|
+    .col-md-2
+      %h4= Visit.human_attribute_name(k)
+      %p= @visit.send(k) || empty_char
+.row
+  - %i[browser os device_type screen_height screen_width].each do |k|
+    .col-md-2
+      %h4= Visit.human_attribute_name(k)
+      %p= @visit.send(k) || empty_char
+
+%h3 Visit
+
+.row
+  - %i[utm_source utm_medium utm_term utm_content utm_campaign started_at].each do |k|
+    .col-md-2
+      %h4= Visit.human_attribute_name(k)
+      %p= @visit.send(k) || empty_char
+
+%h3 Technical
+
+.row
+  - %i[id visit_token visitor_token].each do |k|
+    .col-md-4
+      %h4= Visit.human_attribute_name(k)
+      %p= @visit.send(k) || empty_char
+
+
+- if @visit.ahoy_events.any?
+
+  %h3= Visit.human_attribute_name(:events)
+
+  %table.table
+    %thead
+      %tr
+        %th #
+        - %i( name user time ).each do |att|
+          %th= Ahoy::Event.human_attribute_name(att)
+    %tbody
+      - @visit.ahoy_events.each do |event|
+        %tr
+          %td= short_uuid(event.id)
+          %td= event.name
+          %td
+            - if event.user
+              = link_to event.user.name, admin_user_path(event.user)
+            - else
+              &empty;
+          %td= l event.time, format: :digits

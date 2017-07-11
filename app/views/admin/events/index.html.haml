@@ -19,8 +19,8 @@
             - event.properties.each do |key, value|
               %li= "#{key.capitalize}: #{value}"
         %td
-          - if event.user
-            = short_uuid(event.visit.id)
+          - if event.visit
+            = link_to short_uuid(event.visit.id), admin_visit_path(event.visit)
           - else
             &empty;
         %td
