@@ -25,11 +25,25 @@ fr:
         sign_in_count: Nombre de connexions
         updated_at: Date de mise à jour
       visit:
+        browser: Navigateur
+        city: Ville
         country: Pays
+        device_type: Type d'appareil
+        events: Événements
+        ip: Adresse IP
         latitude: Latitude
-        longitude: longitude
+        location: Localisation
+        longitude: Longitude
+        os: Système d'exploitation
+        postal_code: Code postal
+        region: Région
+        screen_height: Hauteur d'écran
+        screen_width: Largeur d'écran
+        started_at: Débutée le
+        technical: Technique
         user: Utilisateur
         user_agent: User Agent
+        visitor: Visiteur
     models:
       ahoy/event:
         one: événement
@@ -60,7 +74,7 @@ fr:
       index:
         title: Liste des visites
       show:
-        title: Détail d'une visite
+        title: Détails d'une visite
   devise:
     confirmations:
       new:

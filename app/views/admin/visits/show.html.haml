@@ -2,9 +2,7 @@
 
 %p.pull-right= link_to t(:'scaffold.back'), admin_visits_path, class: 'btn btn-default'
 
-%p= @visit.inspect
-
-%h3 Visitor
+%h3= Visit.human_attribute_name(:visitor)
 
 .row
   .col-md-2
@@ -12,9 +10,9 @@
     %p= link_to(@visit.user.name, admin_user_path(@visit.user)) || empty_char
   .col-md-2
     %h4= User.human_attribute_name(:created_at)
-    %p= l @visit.user.created_at, format: :short
+    %p= l @visit.user.created_at, format: :long
 
-%h3 Location
+%h3= Visit.human_attribute_name(:location)
 
 .row
   - %i[country region city postal_code latitude longitude].each do |k|
@@ -22,7 +20,7 @@
       %h4= Visit.human_attribute_name(k)
       %p= @visit.send(k) || empty_char
 
-%h3 Browser
+%h3= Visit.human_attribute_name(:browser)
 
 .row
   - %i[ip user_agent referrer referring_domain search_keyword].each do |k|
@@ -35,15 +33,18 @@
       %h4= Visit.human_attribute_name(k)
       %p= @visit.send(k) || empty_char
 
-%h3 Visit
+%h3= Visit.model_name.human.capitalize
 
 .row
-  - %i[utm_source utm_medium utm_term utm_content utm_campaign started_at].each do |k|
+  - %i[utm_source utm_medium utm_term utm_content utm_campaign].each do |k|
     .col-md-2
       %h4= Visit.human_attribute_name(k)
       %p= @visit.send(k) || empty_char
+  .col-md-2
+    %h4= Visit.human_attribute_name(:started_at)
+    %p= l @visit.started_at, format: :long
 
-%h3 Technical
+%h3= Visit.human_attribute_name(:technical)
 
 .row
   - %i[id visit_token visitor_token].each do |k|

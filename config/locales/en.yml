@@ -25,11 +25,25 @@ en:
         sign_in_count: Sign in count
         updated_at: Updated
       visit:
+        browser: Browser
+        city: City
         country: Pays
+        device_type: Device type
+        events: Events
+        ip: IP address
         latitude: Latitude
-        longitude: longitude
+        location: Location
+        longitude: Longitude
+        os: Operating system
+        postal_code: Postal code
+        region: Region
+        screen_height: Screen height
+        screen_width: Screen width
+        started_at: Started at
+        technical: Technical
         user: Utilisateur
         user_agent: User Agent
+        visitor: Visitor
     models:
       ahoy/event:
         one: event
