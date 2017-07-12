@@ -1,0 +1,41 @@
+%h2= t :'.title'
+
+%p.pull-right= link_to t(:'scaffold.back'), admin_events_path, class: 'btn btn-default'
+
+.clearfix
+
+.row
+  .col-md-3
+    %h3= Ahoy::Event.human_attribute_name(:user)
+    %p
+      = link_to @event.user.name, admin_user_path(@event.user)
+
+  .col-md-3
+    %h3= Ahoy::Event.human_attribute_name(:visit)
+    %p
+      - if @event.visit
+        = link_to short_uuid(@event.visit.id), admin_visit_path(@event.visit)
+      - else
+        &empty;
+
+  .col-md-3
+    %h3= Ahoy::Event.human_attribute_name(:name)
+    %p
+      = @event.name
+
+  .col-md-3
+    %h3= Ahoy::Event.human_attribute_name(:time)
+    %p
+      = l @event.time
+
+%h3= Ahoy::Event.human_attribute_name(:properties)
+
+%table.table
+  %thead
+    %tr
+      - @event.properties.keys.each do |k|
+        %th= k
+  %tbody
+    %tr
+      - @event.properties.values.each do |v|
+        %td= v

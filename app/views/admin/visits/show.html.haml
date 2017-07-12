@@ -66,7 +66,7 @@
     %tbody
       - @visit.ahoy_events.each do |event|
         %tr
-          %td= short_uuid(event.id)
+          %td= link_to short_uuid(event.id), admin_event_path(event)
           %td= event.name
           %td
             - if event.user
