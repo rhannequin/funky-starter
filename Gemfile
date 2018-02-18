@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.x'
+gem 'rails'
 
 # Database
 gem 'pg'
@@ -66,10 +66,7 @@ group :development do
   gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
   gem 'capistrano-rvm',        require: false # RVM support for Capistrano
-  gem 'capistrano3-puma',      git: 'https://github.com/rhannequin/capistrano-puma.git',
-                               branch: 'daemonize-config',
-                               require: false # Puma support for Capistrano
-  gem 'quiet_assets'                          # Turns off the Rails asset pipeline log
+  gem 'capistrano3-puma',      require: false # Puma support for Capistrano
   gem 'rubocop'                               # Ruby style guide
   gem 'spring'                                # Keeps application running in the background
   gem 'web-console'                           # Web Console
@@ -78,7 +75,7 @@ end
 group :test do
   gem 'capybara'                              # Integration tests
   gem 'database_cleaner'                      # Clean database during tests
-  gem 'factory_girl_rails'                    # Factories
+  gem "factory_bot_rails"                     # Factories
   gem 'faker'                                 # Use real values to fake for factories
   gem 'i18n-tasks'                            # Finds and manage missing and unused translations
   gem 'rails-controller-testing'              # Support for assigns and assert_template
@@ -91,9 +88,3 @@ gem 'sdoc', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

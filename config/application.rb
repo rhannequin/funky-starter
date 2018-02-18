@@ -24,7 +24,7 @@ module Funkystarter
     config.active_record.primary_key = :uuid
 
     config.generators do |g|
-      g.factory_girl false
+      g.factory_bot false
     end
 
     config.middleware.use Rack::Attack
