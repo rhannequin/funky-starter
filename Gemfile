@@ -1,7 +1,13 @@
 source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.x'
+gem 'rails'
 
 # Database
 gem 'bcrypt'
@@ -89,11 +95,12 @@ end
 group :test do
   gem 'capybara'                              # Integration tests
   gem 'database_cleaner'                      # Clean database during tests
-  gem 'factory_girl_rails'                    # Factories
+  gem "factory_bot_rails"                     # Factories
   gem 'faker'                                 # Use real values to fake for factories
   gem 'i18n-tasks'                            # Finds and manage missing and unused translations
   gem 'rails-controller-testing'              # Support for assigns and assert_template
   gem 'rspec-rails'                           # RSpec test framework
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false             # Test coverage
 end
 

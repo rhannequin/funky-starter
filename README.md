@@ -23,7 +23,7 @@ This is a sample Rails application. Here's what is installed:
 * Devise custom view with Simple Form and Bootstrap
 * [RSpec](https://github.com/rspec/rspec-rails) for TDD
 * [Capybara](https://github.com/jnicklas/capybara) for BDD
-* [factory_girl](https://github.com/thoughtbot/factory_girl) for factories
+* [factory_bot](https://github.com/thoughtbot/factory_bot) for factories
 * [i18n-tasks](https://github.com/glebm/i18n-tasks) and improvements in translations
 * [simplecov](https://github.com/colszowka/simplecov) for test coverage
 * [Rubocop](https://github.com/bbatsov/rubocop) for code review

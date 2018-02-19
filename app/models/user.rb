@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-    name_changed? || super
+    saved_change_to_name? || super
   end
 
   def self.from_omniauth(auth)
@@ -42,7 +42,7 @@ class User < ApplicationRecord
   private
 
   def notify_email_change
-    UserMailer.email_changed_email(self, email_before_last_save, email_before_last_save).deliver_now
-    UserMailer.email_changed_email(self, email_before_last_save, email).deliver_now
+    UserMailer.email_modified_email(self, email_before_last_save, email_before_last_save).deliver_now
+    UserMailer.email_modified_email(self, email_before_last_save, email).deliver_now
   end
 end

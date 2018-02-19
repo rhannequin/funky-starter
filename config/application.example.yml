@@ -10,7 +10,7 @@ TWITTER_SECRET: xxx
 
 development:
   DB_HOST: localhost
-  DB_DATABASE: fspp_development
+  DB_DATABASE: fs_development
   DB_SCHEMA: public
   DB_USERNAME: xxx
   DB_PASSWORD: xxx
@@ -18,7 +18,7 @@ development:
 
 test:
   DB_HOST: localhost
-  DB_DATABASE: fspp_test
+  DB_DATABASE: fs_test
   DB_SCHEMA: public
   DB_USERNAME: xxx
   DB_PASSWORD: xxx
