@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.7.1'
+lock '3.8.2'
 
 set :application, 'funky-starter'
 set :repo_url,    'https://example.com/repo.git'
@@ -40,10 +40,10 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # RVM setup
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1'
+set :rvm_ruby_version, '2.4.1'
 
 # Bundler setup
-set :bundle_without, %w(development test).join(' ')
+set :bundle_without, %w[development test].join(' ')
 set :bundle_flags, '--deployment --quiet --clean'
 set :bundle_jobs, 4
 set :bundle_binstubs, nil
@@ -55,7 +55,7 @@ set :default_environment, 'PATH' => './bin:$PATH'
 set :conditionally_migrate, true
 
 # Assets
-set :assets_roles, [:web, :app]
+set :assets_roles, %i[web app]
 
 # Puma
 set :puma_threads,            [4, 16]

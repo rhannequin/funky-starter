@@ -9,14 +9,14 @@ class User < ApplicationRecord
          :omniauthable, :lockable
   acts_as_paranoid
 
-  friendly_id :slug_candidates, use: [:slugged, :finders]
+  friendly_id :slug_candidates, use: %i[slugged finders]
 
   validates :name, presence: true, uniqueness: true
 
   after_update :notify_email_change, if: -> { saved_change_to_email? }
 
   def slug_candidates
-    [:name, [:name, :uid]]
+    [:name, %i[name uid]]
   end
 
   def should_generate_new_friendly_id?

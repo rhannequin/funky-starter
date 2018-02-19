@@ -21,6 +21,7 @@ feature 'User edit registration' do
     end
 
     describe 'when a user changes personal information' do
+      before { Setting.create email: 'test@example.com' }
       let(:new_name) { build(:user).name }
 
       background do
@@ -42,7 +43,7 @@ feature 'User edit registration' do
     end
   end
 
-  %i(twitter facebook).each do |provider|
+  %i[twitter facebook].each do |provider|
     describe "when signed in with #{provider.capitalize}" do
       background do
         log_in_with_omniauth(provider)

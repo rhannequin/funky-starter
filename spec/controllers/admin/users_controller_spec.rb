@@ -100,4 +100,19 @@ describe Admin::UsersController, type: :controller do
       expect(response).to redirect_to(admin_users_path)
     end
   end
+
+  describe 'authorization' do
+    let(:user) { create :user }
+    let(:previous_page) { edit_user_registration_path }
+
+    before(:each) do
+      sign_in user
+      request.env['HTTP_REFERER'] = previous_page
+    end
+
+    it 'redirects to previous page if not authorized' do
+      get :index
+      expect(response).to redirect_to(previous_page)
+    end
+  end
 end

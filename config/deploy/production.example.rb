@@ -15,9 +15,9 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %W(#{fetch(:user)}@12.345.678.90)
-role :web, %W(#{fetch(:user)}@12.345.678.90)
-role :db,  %W(#{fetch(:user)}@12.345.678.90), primary: true
+role :app, %W[#{fetch(:user)}@12.345.678.90]
+role :web, %W[#{fetch(:user)}@12.345.678.90]
+role :db,  %W[#{fetch(:user)}@12.345.678.90], primary: true
 
 # Configuration
 # =============

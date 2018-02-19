@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def account_params
-    %i(name email password password_confirmation current_password)
+    %i[name email password password_confirmation current_password]
   end
 end

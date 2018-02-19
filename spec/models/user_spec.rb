@@ -67,6 +67,7 @@ describe User, type: :model do
     end
 
     it 'stays the same if the name does not change' do
+      Setting.create email: 'test@example.com'
       slug = user.slug
       user.email = 'example@test.com'
       user.save

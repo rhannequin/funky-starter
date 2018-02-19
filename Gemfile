@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 gem 'rails'
 
 # Database
+gem 'bcrypt'
 gem 'pg'
 
 # Webserver
@@ -44,7 +45,7 @@ gem 'uglifier'
 ## Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 ## See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer'
 
 # Ajax
 ## Use jquery as the JavaScript library
@@ -59,8 +60,14 @@ gem 'responders'
 # Simple Form
 gem 'simple_form'
 
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+end
+
 group :development do
   gem 'brakeman',              require: false # Vulnerabilities
+  gem 'bullet'                                # N+1 queries
   gem 'capistrano',            require: false # Deployment
   gem 'capistrano-bundler',    require: false # Bundler support for Capistrano
   gem 'capistrano-figaro-yml', require: false # Figaro's config/application.yml support for Capistrano
@@ -85,6 +92,3 @@ end
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
-
-# Use ActiveModel has_secure_password
-gem 'bcrypt'

@@ -8,7 +8,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     )
   end
 
-  %i(twitter facebook).each do |provider|
+  %i[twitter facebook].each do |provider|
     provides_callback_for provider
   end
 
