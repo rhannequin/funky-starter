@@ -58,6 +58,8 @@ en:
     events:
       index:
         title: List of events
+      show:
+        title: Event details
     home:
       index:
         sub_title: Welcome to your Administration Dashboard.

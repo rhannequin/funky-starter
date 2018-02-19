@@ -58,6 +58,8 @@ fr:
     events:
       index:
         title: Liste des événements
+      show:
+        title: "Détails d'un événement"
     home:
       index:
         sub_title: Bienvenue sur votre tableau de bord d'administration.
