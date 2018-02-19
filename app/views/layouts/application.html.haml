@@ -9,14 +9,16 @@
 
     %title= t :'layouts.application_name'
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+
     :javascript
       // Get current locale from server
       var APP = window.APP = {}
       APP.locale = '#{I18n.locale}'
-    
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
 
     / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
@@ -24,8 +26,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     = favicon_link_tag 'favicon.png'
-
-    = csrf_meta_tags
 
   %body
 

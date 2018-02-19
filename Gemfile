@@ -1,4 +1,10 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -74,6 +80,7 @@ group :development do
   gem 'capistrano-rails',      require: false # Rails support for Capistrano
   gem 'capistrano-rvm',        require: false # RVM support for Capistrano
   gem 'capistrano3-puma',      require: false # Puma support for Capistrano
+  gem 'listen'
   gem 'rubocop'                               # Ruby style guide
   gem 'spring'                                # Keeps application running in the background
   gem 'web-console'                           # Web Console
@@ -87,6 +94,7 @@ group :test do
   gem 'i18n-tasks'                            # Finds and manage missing and unused translations
   gem 'rails-controller-testing'              # Support for assigns and assert_template
   gem 'rspec-rails'                           # RSpec test framework
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false             # Test coverage
 end
 
