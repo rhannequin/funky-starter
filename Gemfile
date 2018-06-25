@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -24,6 +19,9 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
+# Cache
+gem 'redis'
 
 # Templating engine
 gem 'haml-rails'
@@ -66,6 +64,9 @@ gem 'responders'
 # Simple Form
 gem 'simple_form'
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -83,11 +84,13 @@ group :development do
   gem 'listen'
   gem 'rubocop'                               # Ruby style guide
   gem 'spring'                                # Keeps application running in the background
+  gem 'spring-watcher-listen'
   gem 'web-console'                           # Web Console
 end
 
 group :test do
   gem 'capybara'                              # Integration tests
+  gem 'chromedriver-helper'                   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'database_cleaner'                      # Clean database during tests
   gem "factory_bot_rails"                     # Factories
   gem 'faker'                                 # Use real values to fake for factories
@@ -97,6 +100,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', require: false             # Test coverage
 end
-
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', group: :doc
