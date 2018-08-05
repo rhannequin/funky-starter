@@ -1,6 +1,8 @@
-require 'fileutils'
+# frozen_string_literal: true
 
-desc 'Fork this starter to build a new project from it'
+require "fileutils"
+
+desc "Fork this starter to build a new project from it"
 task :fork, :location do |_, args|
   location = args.location
   folder = to_folder_name location
@@ -22,24 +24,24 @@ task :fork, :location do |_, args|
     text = text.gsub(/Funkystarter/, project_name)
     text = text.gsub(/FunkyStarter/, module_name)
     text = text.gsub(/Funky Starter/, project_title)
-    File.open(full_path, 'w') { |f| f.puts text }
+    File.open(full_path, "w") { |f| f.puts text }
   end
 end
 
 def to_folder_name(str)
-  str.split('/').last.downcase
+  str.split("/").last.downcase
 end
 
 def to_module_name(str)
-  str.split('-').map(&:capitalize).join('')
+  str.split("-").map(&:capitalize).join("")
 end
 
 def to_project_title(str)
-  str.split('-').map(&:capitalize).join(' ')
+  str.split("-").map(&:capitalize).join(" ")
 end
 
 def to_variable_name(str)
-  str.split('-').join('_')
+  str.split("-").join("_")
 end
 
 def files

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   extend FriendlyId
 
@@ -39,8 +41,8 @@ class User < ApplicationRecord
 
   private
 
-  def notify_email_change
-    UserMailer.email_modified_email(self, email_before_last_save, email_before_last_save).deliver_now
-    UserMailer.email_modified_email(self, email_before_last_save, email).deliver_now
-  end
+    def notify_email_change
+      UserMailer.email_modified_email(self, email_before_last_save, email_before_last_save).deliver_now
+      UserMailer.email_modified_email(self, email_before_last_save, email).deliver_now
+    end
 end

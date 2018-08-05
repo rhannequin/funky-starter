@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   def email_modified_email(user, email_was, to)
     @user = user
